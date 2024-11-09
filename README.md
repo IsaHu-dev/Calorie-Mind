@@ -85,3 +85,13 @@ At the start of coding the app, I had run into some bugs. The following bugs I e
 - Syntax Adjustments: Cleaned up syntax and formatting for readability.
 
 All bugs are presently fixed.
+
+# Deployment
+This project was deployed using Code Institute's mock terminal for Heroku.
+
+The steps for deployment are as follows:
+- Fork or clone this repository
+- Create a new Heroku app
+- Set the buildpacks to Python and NodeJS in that order
+- Link the Heroku app to the repository
+- Click on Deploy
