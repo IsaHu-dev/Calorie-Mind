@@ -101,13 +101,17 @@ class FoodTracker:
         self.update_goals_sheet()    
         
     def calculate_weekly_totals(self):
-        """Calculate weekly totals for calories and macronutrients."""
-        #Calculate weekly totals by summing daily entries and multiplying by 7
+        """Calculate weekly totals for calories and macronutrients from the last 7 entries."""
+        # Retrieve the last 7 entries from the Entries worksheet
         
-        total_calories = sum(food.calories for food in self.today) * 7
-        total_protein = sum(food.protein for food in self.today) * 7
-        total_fat = sum(food.fat for food in self.today) * 7
-        total_carbs = sum(food.carbs for food in self.today) * 7
+        entries = WORKSHEET.get_all_values()
+        last_7_entries = entries[-7:] if len(entries) >= 7 else entries
+        
+        # Calculate weekly totals for calories and macronutrients from the last 7 entries.
+        total_calories = sum(int(entry[2]) for entry in last_7_entries)
+        total_protein = sum(int(entry[4]) for entry in last_7_entries)
+        total_fat = sum(int(entry[4]) for entry in last_7_entries)
+        total_carbs = sum(int(entry[5]) for entry in last_7_entries)
        
     # Record the weekly totals in the Google Sheets "Goal" worksheet
         timestamp = datetime.now().strftime("%Y-%m-%d")
@@ -116,7 +120,7 @@ class FoodTracker:
         print("Weekly totals added to Google Sheets successfully.")
 
         # Display the results
-        print("\nWeekly Totals:")
+        print("\nWeekly Totals(Last 7 Days):")
         print(f"Total Calories: {total_calories}")
         print(f"Total Protein: {total_protein}g")
         print(f"Total Fat: {total_fat}g")
@@ -148,7 +152,7 @@ class FoodTracker:
             return None    
         
     def main_menu(self):
-        """Displays the main menu and processes user choices."""
+        #Displays the main menu and processes user choices.                                                                                                                                                                                                                                                                                                                                                     
         done = False
         while not done:
             print("""
