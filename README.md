@@ -57,8 +57,6 @@ Calorie Mind is a powerful and user-friendly app designed to help you take contr
 - Expand Meal Entry Options. Include Breakfast and Lunch in Totals Calculations
 - Extend the New Daily Goals and Weekly Totals features to incorporate Breakfast and Lunch data, allowing users to view cumulative 
   weekly values across all meals.
-- Add functionality to calculate and display percentage goal completion for Breakfast and Lunch entries, enabling users to monitor 
-  progress toward daily targets on a meal-specific basis.
 
 # Testing
 
