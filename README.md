@@ -74,6 +74,7 @@ Calorie Mind is a powerful and user-friendly app designed to help you take contr
 | Select option 4                   | Calculates weekly totals. Retrieves from Google worksheet and sums up the last 7 entries.                                                                                                                  | ✅ PASS          |                           
 | Select q                          | Select q for quit. Exits mock terminal program.                                     | ✅ PASS          |
 
+
 ## Bugs/Updates after Testing
 
 At the start of coding the app, I had run into some bugs. The following bugs I encountered are as follows:
@@ -84,7 +85,14 @@ At the start of coding the app, I had run into some bugs. The following bugs I e
 
 All bugs are presently fixed.
 
+## Validator Testing
+
+- Fully passed the PYLINT VALIDATOR - a pep8 tool
+[Pylint](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/pylint.png)
+
+
 # Deployment
+
 This project was deployed using Code Institute's mock terminal for Heroku.
 
 The steps for deployment are as follows:
@@ -93,3 +101,7 @@ The steps for deployment are as follows:
 - Set the buildpacks to Python and NodeJS in that order
 - Link the Heroku app to the Github repository 'Calorie Mind'
 - Click on Deploy
+
+## Credits 
+
+  - 
