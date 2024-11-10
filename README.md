@@ -80,8 +80,6 @@ At the start of coding the app, I had run into some bugs. The following bugs I e
 
 - Indentation Fixes: Corrected indentation issues, especially in the calculate_goal_percentage method.
 
-- Incorrect nested function:  Moved calculate_percentage out as a separate method within FoodTracker.
-
 - Syntax Adjustments: Cleaned up syntax and formatting for readability.
 
 All bugs are presently fixed.
@@ -90,8 +88,8 @@ All bugs are presently fixed.
 This project was deployed using Code Institute's mock terminal for Heroku.
 
 The steps for deployment are as follows:
-- Fork or clone this repository
+
 - Create a new Heroku app
 - Set the buildpacks to Python and NodeJS in that order
-- Link the Heroku app to the repository
+- Link the Heroku app to the Github repository 'Calorie Mind'
 - Click on Deploy
