@@ -21,7 +21,11 @@ Calorie Mind is a powerful and user-friendly app designed to help you take contr
 
 - Calculate Weekly Totals:
     - Calorie Mind will calculate and display the total values for Calories, Protein, and Fat over the past seven days, helping you track your progress and adjust your diet if needed.
-              
+
+# Features
+
+[Pylint](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/console.png)
+
 ## Existing Features
 
 - Calorie Mind provides a straightforward, command-driven interface, facilitating efficient navigation and nutrition tracking via a number selection. Each feature supports mindful eating practices, enabling dietary adjustments aligned with health and fitness objectives.
