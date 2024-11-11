@@ -65,7 +65,7 @@ class FoodTracker:
 
         timestamp = datetime.now().strftime("%Y-%m-%d")
 
-        # Fixed line length by splitting row assignment across multiple lines (fix: pylint)
+        # Fixed line length by splitting row assignment across multiple lines
         row = [
             timestamp, protein_sum, fats_sum, carbs_sum,
             self.protein_goal, self.fat_goal, self.carbs_goal
@@ -131,7 +131,7 @@ class FoodTracker:
         print(f"Total Carbs: {total_carbs}g\n")
 
     def fetch_nutrition(self, food_name):
-        """Fetches nutrition data for a given food from the API."""  # Added docstring here
+ 
         headers = {"X-Api-Key": API_KEY}
         params = {"query": food_name}
 
@@ -144,18 +144,25 @@ class FoodTracker:
                 item = data["items"][0]
 
                 # Extracting the nutrition data
-                return Food(
+                food = Food(
                     name=food_name,
                     calories=int(item.get("calories", 0)),
                     protein=int(item.get("protein_g", 0)),
                     fat=int(item.get("fat_total_g", 0)),
                     carbs=int(item.get("carbohydrates_total_g", 0))
-                )
-            print("No nutrition data found for this item")
+            )
+            
+            # Print to console when data is retrieved
+            print(f"Nutrition data retrieved for {food_name}:")
+            print(f"Calories: {food.calories}, Protein: {food.protein}g, "
+                  f"Fat: {food.fat}g, Carbs: {food.carbs}g")
+            
+            return food
+            print("No nutrition data found for this item.")
             return None
         except requests.RequestException as e:
             print(f"Error fetching nutrition data: {e}")
-            return None  # Removed trailing whitespace here (pylint)
+            return None
 
     def main_menu(self):
         """Displays the main menu and handles user input."""
