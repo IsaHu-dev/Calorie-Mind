@@ -24,7 +24,7 @@ Calorie Mind is a powerful and user-friendly app designed to help you take contr
 
 # Features
 
-[Pylint](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/console.png)
+   [Image of Console](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/console.png)
 
 ## Existing Features
 
