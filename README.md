@@ -90,7 +90,6 @@ All bugs are presently fixed.
 - Fully passed the PYLINT VALIDATOR - a pep8 tool
 [Pylint](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/pylint.png)
 
-
 # Deployment
 
 This project was deployed using Code Institute's mock terminal for Heroku.
@@ -104,4 +103,7 @@ The steps for deployment are as follows:
 
 ## Credits 
 
-  - 
+  - The python code for the app Calorie Mind was refactored to adopt an object-oriented approach. I sourced this youtube tutorial and used it as a rough guide. https://www.youtube.com/watch?v=0-LDsQpKYFU
+  - The initialization code for Google Sheets API access is adapted from the Love Sandwiches workshop.
+
+  
