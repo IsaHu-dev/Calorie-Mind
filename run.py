@@ -135,8 +135,8 @@ class FoodTracker:
         print(f"Total Protein: {total_protein}g")
         print(f"Total Fat: {total_fat}g")
         print(f"Total Carbs: {total_carbs}g\n")
-        
-     def fetch_nutrition(self, food_name):
+
+    def fetch_nutrition(self, food_name):
         headers = {"X-Api-Key": API_KEY}
         params = {"query": food_name}
 
@@ -186,24 +186,58 @@ class FoodTracker:
 
             if choice == "1":
                 food_name = input("What did you have for dinner? Food Item: ")
-                use_api = input(
-                    "Do you know the calorie and macronutrient values? (y/n): "
-                ).strip().lower()
+                use_api = input("Do you know the calorie and macronutrient values? (y/n): ").strip().lower()
 
                 if use_api == 'n':
                     food = self.fetch_nutrition(food_name)
                     if food:
                         self.add_food(food)
                 else:
-                    try:
-                        calories = int(input("Calories: "))
-                        protein = int(input("Protein: "))
-                        fat = int(input("Fats: "))
-                        carbs = int(input("Carbs: "))
-                        food = Food(food_name, calories, protein, fat, carbs)
-                        self.add_food(food)
-                    except ValueError:
-                        print("Please enter numeric values for calories, protein, fats, and carbs.")
+                    # Separate while loops for each nutrient input
+                    while True:
+                        try:
+                            calories = int(input("Calories (round number): "))
+                            if calories <= 0:
+                                print("Please enter a round number.")
+                                continue
+                            break
+                        except ValueError:
+                            print("Invalid input. Please enter a round number for calories.")
+
+                    while True:
+                        try:
+                            protein = int(input("Protein (round number): "))
+                            if protein <= 0:
+                                print("Please enter a round number.")
+                                continue
+                            break
+                        except ValueError:
+                            print("Invalid input. Please enter a round number for protein.")
+
+                    while True:
+                        try:
+                            fat = int(input("Fat (whole number): "))
+                            if fat <= 0:
+                                print("Please enter a round number.")
+                                continue
+                            break
+                        except ValueError:
+                            print("Invalid input. Please enter a round number for fat.")
+
+                    while True:
+                        try:
+                            carbs = int(input("Carbs (round number): "))
+                            if carbs <= 0:
+                                print("Please enter a round number.")
+                                continue
+                            break
+                        except ValueError:
+                            print("Invalid input. Please enter a round number for carbs.")
+
+                    # Add the food entry once all inputs are valid
+                    food = Food(food_name, calories, protein, fat, carbs)
+                    self.add_food(food)
+
 
             elif choice == "2":
                 self.record_new_goals()
