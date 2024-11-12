@@ -80,13 +80,12 @@ class FoodTracker:
                 self.fat_goal = int(input("Enter your new fat goal (round number): "))
                 self.carbs_goal = int(input("Enter your new carb goal (round number): "))
 
-                # Ensure all inputs are round numbers
                 if any(goal % 1 != 0 for goal in [self.protein_goal, self.fat_goal, self.carbs_goal]):
                     raise ValueError("Goals must be round numbers.")
 
                 self.update_goals_sheet()
                 print("New goals set and logged successfully.")
-                break  # Exit the loop if inputs are valid 
+                break
 
             except ValueError as e:
                 print(f"Please enter valid or round numbers for each goal.")
@@ -99,21 +98,36 @@ class FoodTracker:
         return min(percentage, 100) if percentage <= 100 else 100 - (percentage - 100)
 
     def calculate_goal_percentage(self):
-        """Calculates and displays the percentage of daily goals reached."""
-        if not self.today:
-           print("No entry has been made yet.")
-           return
-    
-        """Calculates and displays the percentage of daily goals reached."""
-        protein_sum = sum(food.protein for food in self.today)
-        fats_sum = sum(food.fat for food in self.today)
-        carbs_sum = sum(food.carbs for food in self.today)
+        """Calculates and displays the percentage of daily goals reached from the last recorded date."""
+        entries = WORKSHEET.get_all_values()  # Retrieve all entries from the worksheet
 
+        # Extract dates and determine the last entry date
+        dates = [entry[0].split(" ")[0] for entry in entries[1:]]  
+        last_date = max(dates) if dates else None
+
+        if not last_date:
+            print("No entries found in the worksheet.")
+            return
+
+        # Filter entries by the last recorded date
+        last_date_entries = [entry for entry in entries[1:] if entry[0].startswith(last_date)]
+        
+        if not last_date_entries:
+            print("No entry has been made yet for the last recorded date.")
+            return
+
+        # Calculate protein, fat, and carbs for the last date entries
+        protein_sum = sum(int(entry[3]) for entry in last_date_entries)
+        fats_sum = sum(int(entry[4]) for entry in last_date_entries)
+        carbs_sum = sum(int(entry[5]) for entry in last_date_entries)
+
+        # Calculate percentage of each goal
         protein_score = self.calculate_percentage(protein_sum, self.protein_goal)
         fat_score = self.calculate_percentage(fats_sum, self.fat_goal)
         carbs_score = self.calculate_percentage(carbs_sum, self.carbs_goal)
 
-        print("\nDaily Goal Achievement:")
+        # Display results
+        print(f"\nDaily Goal Achievement for {last_date}:")
         print(f"Protein: {protein_score:.2f}% of goal reached")
         print(f"Fat: {fat_score:.2f}% of goal reached")
         print(f"Carbs: {carbs_score:.2f}% of goal reached\n")
@@ -153,7 +167,6 @@ class FoodTracker:
             if data["items"]:
                 item = data["items"][0]
 
-                # Extracting the nutrition data
                 food = Food(
                     name=food_name,
                     calories=int(item.get("calories", 0)),
@@ -162,13 +175,11 @@ class FoodTracker:
                     carbs=int(item.get("carbohydrates_total_g", 0))
                 )
 
-                # Print to console when data is retrieved
                 print(f"Nutrition data retrieved for {food_name}:")
                 print(f"Calories: {food.calories}, Protein: {food.protein}g, Fat: {food.fat}g, Carbs: {food.carbs}g")
 
                 return food
             else:
-                # New print statement for unrecognized food item
                 print("Food item is not recognised or we are not reading your input.\n")
                 return None
         except requests.RequestException as e:
@@ -198,7 +209,6 @@ class FoodTracker:
                     if food:
                         self.add_food(food)
                 else:
-                    # Separate while loops for each nutrient input
                     while True:
                         try:
                             calories = int(input("Calories (round number): "))
@@ -239,10 +249,8 @@ class FoodTracker:
                         except ValueError:
                             print("Invalid input. Please enter a round number for carbs.")
 
-                    # Add the food entry once all inputs are valid
                     food = Food(food_name, calories, protein, fat, carbs)
                     self.add_food(food)
-
 
             elif choice == "2":
                 self.record_new_goals()
