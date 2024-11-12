@@ -64,8 +64,6 @@ class FoodTracker:
         carbs_sum = sum(food.carbs for food in self.today)
 
         timestamp = datetime.now().strftime("%Y-%m-%d")
-
-        # Fixed line length by splitting row assignment across multiple lines
         row = [
             timestamp, protein_sum, fats_sum, carbs_sum,
             self.protein_goal, self.fat_goal, self.carbs_goal
@@ -76,14 +74,22 @@ class FoodTracker:
 
     def record_new_goals(self):
         """Prompts the user for new goals and updates the goals worksheet."""
-        try:
-            self.protein_goal = int(input("Enter your new protein goal: "))
-            self.fat_goal = int(input("Enter your new fat goal: "))
-            self.carbs_goal = int(input("Enter your new carb goal: "))
-            self.update_goals_sheet()
-            print("New goals set and logged successfully.")
-        except ValueError:
-            print("Please enter valid numbers for each goal.")
+        while True:
+            try:
+                self.protein_goal = int(input("Enter your new protein goal (round number): "))
+                self.fat_goal = int(input("Enter your new fat goal (round number): "))
+                self.carbs_goal = int(input("Enter your new carb goal (round number): "))
+
+                # Ensure all inputs are round numbers
+                if any(goal % 1 != 0 for goal in [self.protein_goal, self.fat_goal, self.carbs_goal]):
+                    raise ValueError("Goals must be round numbers.")
+
+                self.update_goals_sheet()
+                print("New goals set and logged successfully.")
+                break  # Exit the loop if inputs are valid 
+
+            except ValueError as e:
+                print(f"Please enter valid or round numbers for each goal.")
 
     def calculate_percentage(self, consumed, goal):
         """Calculate the percentage of the goal achieved."""
@@ -129,9 +135,8 @@ class FoodTracker:
         print(f"Total Protein: {total_protein}g")
         print(f"Total Fat: {total_fat}g")
         print(f"Total Carbs: {total_carbs}g\n")
-
-    def fetch_nutrition(self, food_name):
- 
+        
+     def fetch_nutrition(self, food_name):
         headers = {"X-Api-Key": API_KEY}
         params = {"query": food_name}
 
@@ -150,16 +155,17 @@ class FoodTracker:
                     protein=int(item.get("protein_g", 0)),
                     fat=int(item.get("fat_total_g", 0)),
                     carbs=int(item.get("carbohydrates_total_g", 0))
-            )
-            
-            # Print to console when data is retrieved
-            print(f"Nutrition data retrieved for {food_name}:")
-            print(f"Calories: {food.calories}, Protein: {food.protein}g, "
-                  f"Fat: {food.fat}g, Carbs: {food.carbs}g")
-            
-            return food
-            print("No nutrition data found for this item.")
-            return None
+                )
+
+                # Print to console when data is retrieved
+                print(f"Nutrition data retrieved for {food_name}:")
+                print(f"Calories: {food.calories}, Protein: {food.protein}g, Fat: {food.fat}g, Carbs: {food.carbs}g")
+
+                return food
+            else:
+                # New print statement for unrecognized food item
+                print("Food item is not recognised or we are not reading your input.\n")
+                return None
         except requests.RequestException as e:
             print(f"Error fetching nutrition data: {e}")
             return None
