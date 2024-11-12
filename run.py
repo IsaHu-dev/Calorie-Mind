@@ -100,6 +100,11 @@ class FoodTracker:
 
     def calculate_goal_percentage(self):
         """Calculates and displays the percentage of daily goals reached."""
+        if not self.today:
+           print("No entry has been made yet.")
+           return
+    
+        """Calculates and displays the percentage of daily goals reached."""
         protein_sum = sum(food.protein for food in self.today)
         fats_sum = sum(food.fat for food in self.today)
         carbs_sum = sum(food.carbs for food in self.today)
