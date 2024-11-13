@@ -52,8 +52,10 @@ class FoodTracker:
     def add_to_google_sheets(self, food: Food):
         """Appends a food entry to Google Sheets."""
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        row = [timestamp, food.name, food.calories, food.protein, food.fat,
-               food.carbs]
+        row = [
+            timestamp, food.name, food.calories, food.protein,
+            food.fat, food.carbs
+        ]
         WORKSHEET.append_row(row)
         print("\nEntry added to Google Sheets successfully.")
 
@@ -80,8 +82,11 @@ class FoodTracker:
                 self.fat_goal = int(input("Enter your new fat goal: "))
                 self.carbs_goal = int(input("Enter your new carb goal: "))
 
-                if any(goal % 1 != 0 for goal in
-                       [self.protein_goal, self.fat_goal, self.carbs_goal]):
+                if any(
+                    goal % 1 != 0 for goal in [
+                        self.protein_goal, self.fat_goal, self.carbs_goal
+                    ]
+                ):
                     raise ValueError("Goals must be round numbers.")
 
                 self.update_goals_sheet()
@@ -96,15 +101,17 @@ class FoodTracker:
         if goal == 0:
             return 0
         percentage = (consumed / goal) * 100
-        return min(percentage, 100) if percentage <= 100 else 100 - (percentage - 100)
+        return min(percentage, 100) if percentage <= 100 else 100 - (
+            percentage - 100
+        )
 
     def calculate_goal_percentage(self):
         """Calculates and displays the percentage of daily goals reached."""
         if not self.today:
-           print("No entry has been made yet.")
-           return
-    
-        """Calculates and displays the percentage of daily goals reached."""
+            print("No entry has been made yet.")
+            return
+
+        # Calculate protein, fat, and carbs for today's entries
         protein_sum = sum(food.protein for food in self.today)
         fats_sum = sum(food.fat for food in self.today)
         carbs_sum = sum(food.carbs for food in self.today)
@@ -131,7 +138,10 @@ class FoodTracker:
         total_carbs = sum(int(entry[5]) for entry in last_7_entries)
 
         timestamp = datetime.now().strftime("%Y-%m-%d")
-        row = [timestamp, total_calories, total_protein, total_fat, total_carbs]
+        row = [
+            timestamp, total_calories, total_protein,
+            total_fat, total_carbs
+        ]
         WEEKTOTAL_WORKSHEET.append_row(row)
         print("\nWeekly totals added to Google Sheets successfully.")
 
@@ -192,7 +202,9 @@ class FoodTracker:
             choice = input("Enter your choice: ")
 
             if choice == "1":
-                food_name = input("\nWhat did you have today? Log a meal - Food Item: ")
+                food_name = input(
+                    "\nWhat did you have today? Log a meal - Food Item: "
+                )
                 use_api = input(
                     "\nDo you know the calorie and macronutrient values? "
                     "(y/n): "

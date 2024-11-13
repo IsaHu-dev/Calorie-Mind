@@ -37,8 +37,10 @@ Calorie Mind is user-friendly app designed to help you take control of your dail
 
     1. Add your Dinner - Input dinner entries.
     
-    - Select 1 to add a dinner entry. If nutritional information is unknown, the application initiates an API request to retrieve accurate values (calories, protein, fat, and carbs).
+    - Select 1 to add a dinner entry. If nutritional information is unknown, the application initiates an API request to retrieve accurate values (calories, protein, fat, and carbs). 
     
+    - You can log more than one meal per day
+
     - Ensures the logging of food intake for daily tracking.    
 
      2. Record New Daily Goals
@@ -46,9 +48,14 @@ Calorie Mind is user-friendly app designed to help you take control of your dail
     - Set daily macronutrient targets for protein, fat, and carbs. This feature helps you stay aligned 
       with your nutrition goals and maintain a balanced diet.
 
+    - This function sums up you new daily goals.
+
      3. Review Your Daily Goal's Analysis
 
-        Your daily goals are calculated as a percentage printed to the console, showing your progress toward your targets. It compares the consumed data and goal data, then outputs it as a percentage.
+    - Your daily goals are calculated as a percentage printed to the console, showing your progress toward your targets. It compares the consumed data and goal 
+      data, then outputs it as a percentage.
+
+    - It calculates the sum of your daily protein, fats and carbs entries and outputs a percentage of your daily goal.     
 
      4. Calculate Weekly Totals
 
@@ -64,6 +71,7 @@ Calorie Mind is user-friendly app designed to help you take control of your dail
 
 - Add a GUI interface - upgrade from a mock terminal.
 - Expand Weekly Totals features to alert the user if they skipped a day. It currently calculates the last seven days.
+- Add a leaderboard on scores once the GUI is designed and implemented.
 
 # Testing
 
@@ -77,7 +85,7 @@ Calorie Mind is user-friendly app designed to help you take control of your dail
 | Select option 1                   | Prompt user to select if they know the macronutrient values. Select n or y.                                                                                                                        | ✅ PASS          |
 | Select option 1                   | Retrieve from API Calorie Ninjas                                                    | ✅ PASS          |                                
 | Select option 2                   | Prompt to input your daily target goals for Protein, Fat, and Carbs.                                                                                                                    | ✅ PASS          |
-| Select option 3                   | A percentage calculation will be displayed in the console, showing how much of your daily goals   have been met based on food entries.                                                                                      | ✅ PASS          |                       
+| Select option 3                   | A percentage calculation will be displayed in the console, showing how much of your daily goals   have been met based on food entries.                                                                                                                  | ✅ PASS          |                       
 | Select option 4                   | Calculates weekly totals. Retrieves from Google worksheet and sums up the last 7 entries.                                                                                                                  | ✅ PASS          |                           
 | Select q                          | Select q for quit. Exits mock terminal program.                                     | ✅ PASS          |
 
@@ -90,10 +98,18 @@ At the start of coding the app, I had run into some bugs. The following bugs I e
 
 - Syntax Adjustments: Cleaned up syntax and formatting for readability.
 
+- Issue: Previously, when the API could not find a specified food item or when the user entered invalid input, the application would error. Solution: Added exception handling to manage cases where the food item is not recognized by the API or if there’s invalid input. Now, when this occurs, the application catches the error and prints a helpful message—“Food item not recognised”—to the console. 
+
+- Add conditional check for invalid user input, or when user inputs a decimal point or letters for entering Calories and macronutrients.
+
+- Previously, the application did not handle invalid inputs correctly when users entered calorie and macronutrient values. If users entered non-integer values, such as decimals, letters, or special characters, the application would throw an error.
+ 
+   Solution: Added a conditional check to validate user input specifically for entering calorie and macronutrient values. Now, the application only accepts positive integer values and rejects any input containing decimals, letters, or special characters.
+
 All bugs are presently fixed.
 
 ## Validator Testing
-
+- Passed the CI Python Linter 
 - Fully passed the PYLINT VALIDATOR - a pep8 tool
 ![Pylint](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/pylint.png)
 
