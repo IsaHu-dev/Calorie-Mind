@@ -75,9 +75,15 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
   - For example, the gspread library plays a significant role in collecting data for weekly totals by retrieving the last 7 entries from the Google Sheet. Based on a date timestamp recorded with each entry, these entries are accessed from the "Week Total" sheet, allowing for calculation and display of weekly data collection.  
 
-  - Daily Entries worksheet: (https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/entries.png)
-  - Daily Goals worksheet: (https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/goals.png)
-  - Weekly Totals worksheet (https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/weeklytotals.png)    
+   Entries Worksheet
+
+   ![Daily Entries worksheet](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/entries.png)
+   Goals Worksheet
+
+   ![Daily Goals worksheet](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/goals.png)
+   Weekly Totals Worksheet
+
+   ![Weekly Totals worksheet](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/weeklytotals.png)    
 
 
  ### UX Design (Basic): 
