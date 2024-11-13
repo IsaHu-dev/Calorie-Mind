@@ -124,8 +124,6 @@ At the start of coding the app, I ran into some bugs. The following bugs I encou
 
 - Indentation Fixes: Corrected indentation issues, especially in the calculate_goal_percentage method.
 
-- Syntax Adjustments: Cleaned up syntax and formatting for readability.
-
 - Issue: Previously, the application would error when the API could not find a specified food item or when the user entered invalid input. 
   Solution: Added exception handling to manage cases where the food item is not recognized by the API or if there’s invalid input. Now, when this occurs, the application catches the error and prints a helpful message—“Food item not recognised”—to the console. 
 
