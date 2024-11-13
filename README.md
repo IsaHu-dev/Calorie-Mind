@@ -69,19 +69,19 @@ Calorie Mind is user-friendly app designed to help you take control of your dail
 
  ### Additional notes: 
 
-    Use of Libraries
+  Use of Libraries
 
-    - The gspread library manages API communication with Google Sheets, while google-auth handles authentication to ensure secure access to the spreadsheet data.
+  - The gspread library manages API communication with Google Sheets, while google-auth handles authentication to ensure secure access to the spreadsheet data.
 
-    - For example, the gspread library plays a significant role in collecting data for weekly totals by retrieving the last 7 entries from the Google Sheet. Based on a date timestamp recorded with each entry, these entries are accessed from the "Week Total" sheet, allowing for calculation and display of weekly data collection.    
+  - For example, the gspread library plays a significant role in collecting data for weekly totals by retrieving the last 7 entries from the Google Sheet. Based on a date timestamp recorded with each entry, these entries are accessed from the "Week Total" sheet, allowing for calculation and display of weekly data collection.    
 
-    - Improved console output readability by adding line spacing for clearer print results.(\n)
+  - Improved console output readability by adding line spacing for clearer print results.(\n)
 
 ## Future Features
 
-- Add a GUI interface and upgrade from a mock terminal.
-- Expand Weekly Totals features to alert the user if they skipped a day. It currently calculates the last seven days.
-- Add a leaderboard on scores once the GUI is designed and implemented.
+  - Add a GUI interface and upgrade from a mock terminal.
+  - Expand Weekly Totals features to alert the user if they skipped a day. It currently calculates the last seven days.
+  - Add a leaderboard on scores once the GUI is designed and implemented.
 
 # Testing
 
