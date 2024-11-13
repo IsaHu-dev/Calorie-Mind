@@ -6,7 +6,7 @@ Calorie Mind is user-friendly app designed to help you take control of your dail
 
 ### Target Users
 
-Calorie Mind is designed for individuals aiming to promote healthier lifestyles through mindful calorie management and tracking. Target users include fitness-conscious individuals looking to optimize their nutrition, heart disease charities, and well-being clinics that aim to support clients in achieving balanced dietary habits. Calorie Mind is ideal for all ages who wish to be informed of their calorie intake for better health and life.
+Calorie Mind is designed for individuals aiming to promote healthier lifestyles through mindful calorie management and tracking. Target users include fitness-conscious individuals looking to optimize their nutrition, heart disease charities, and well-being clinics that aim to support clients in achieving balanced dietary habits. Calorie Mind is ideal for all ages who wish to be informed of their calorie intake for better health and a good lifestyle.
 
  # How to Use Calorie Mind
 
@@ -73,7 +73,14 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
   - The gspread library manages API communication with Google Sheets, while google-auth handles authentication to ensure secure access to the spreadsheet data.
 
-  - For example, the gspread library plays a significant role in collecting data for weekly totals by retrieving the last 7 entries from the Google Sheet. Based on a date timestamp recorded with each entry, these entries are accessed from the "Week Total" sheet, allowing for calculation and display of weekly data collection.    
+  - For example, the gspread library plays a significant role in collecting data for weekly totals by retrieving the last 7 entries from the Google Sheet. Based on a date timestamp recorded with each entry, these entries are accessed from the "Week Total" sheet, allowing for calculation and display of weekly data collection.  
+
+  - Daily Entries worksheet: (https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/entries.png)
+  - Daily Goals worksheet: (https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/goals.png)
+  - Weekly Totals worksheet (https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/weeklytotals.png)    
+
+
+ ### UX Design (Basic): 
 
   - Improved console output readability by adding line spacing for clearer print results.(\n)
 
