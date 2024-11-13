@@ -1,10 +1,10 @@
-"""A module to track daily food intake, nutritional goals, and update Google Sheets."""
+"""A module to track daily food intake, nutritional goals."""
 
+import gspread
+import requests  # Import requests for making API calls
+from google.oauth2.service_account import Credentials
 from dataclasses import dataclass
 from datetime import datetime
-import gspread
-from google.oauth2.service_account import Credentials
-import requests  # Import requests for making API calls
 
 # Set up the Google Sheets API
 SCOPE = [
@@ -53,7 +53,8 @@ class FoodTracker:
     def add_to_google_sheets(self, food: Food):
         """Appends a food entry to Google Sheets."""
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        row = [timestamp, food.name, food.calories, food.protein, food.fat, food.carbs]
+        row = [timestamp, food.name, food.calories, food.protein, food.fat,
+               food.carbs]
         WORKSHEET.append_row(row)
         print("Entry added to Google Sheets successfully.")
 
@@ -70,39 +71,42 @@ class FoodTracker:
         ]
 
         GOALS_WORKSHEET.append_row(row)
-        print("Daily consumed data and goals added to the goals worksheet successfully.")
+        print("Daily consumed data and goals added to the goals worksheet.")
 
     def record_new_goals(self):
         """Prompts the user for new goals and updates the goals worksheet."""
         while True:
             try:
-                self.protein_goal = int(input("Enter your new protein goal (round number): "))
-                self.fat_goal = int(input("Enter your new fat goal (round number): "))
-                self.carbs_goal = int(input("Enter your new carb goal (round number): "))
+                self.protein_goal = int(input("Enter your new protein goal: "))
+                self.fat_goal = int(input("Enter your new fat goal: "))
+                self.carbs_goal = int(input("Enter your new carb goal: "))
 
-                if any(goal % 1 != 0 for goal in [self.protein_goal, self.fat_goal, self.carbs_goal]):
+                if any(goal % 1 != 0 for goal in
+                       [self.protein_goal, self.fat_goal, self.carbs_goal]):
                     raise ValueError("Goals must be round numbers.")
 
                 self.update_goals_sheet()
                 print("New goals set and logged successfully.")
                 break
 
-            except ValueError as e:
-                print(f"Please enter valid or round numbers for each goal.")
+            except ValueError:
+                print("Please enter valid round numbers for each goal.")
 
     def calculate_percentage(self, consumed, goal):
         """Calculate the percentage of the goal achieved."""
         if goal == 0:
             return 0
         percentage = (consumed / goal) * 100
-        return min(percentage, 100) if percentage <= 100 else 100 - (percentage - 100)
+        return min(percentage, 100) if percentage <= 100 else 100 - (
+            percentage - 100
+        )
 
     def calculate_goal_percentage(self):
-        """Calculates and displays the percentage of daily goals reached from the last recorded date."""
-        entries = WORKSHEET.get_all_values()  # Retrieve all entries from the worksheet
+        """Calculates and displays the percentage of daily goals reached."""
+        entries = WORKSHEET.get_all_values()
 
         # Extract dates and determine the last entry date
-        dates = [entry[0].split(" ")[0] for entry in entries[1:]]  
+        dates = [entry[0].split(" ")[0] for entry in entries[1:]]
         last_date = max(dates) if dates else None
 
         if not last_date:
@@ -110,8 +114,10 @@ class FoodTracker:
             return
 
         # Filter entries by the last recorded date
-        last_date_entries = [entry for entry in entries[1:] if entry[0].startswith(last_date)]
-        
+        last_date_entries = [
+            entry for entry in entries[1:] if entry[0].startswith(last_date)
+        ]
+
         if not last_date_entries:
             print("No entry has been made yet for the last recorded date.")
             return
@@ -126,7 +132,6 @@ class FoodTracker:
         fat_score = self.calculate_percentage(fats_sum, self.fat_goal)
         carbs_score = self.calculate_percentage(carbs_sum, self.carbs_goal)
 
-        # Display results
         print(f"\nDaily Goal Achievement for {last_date}:")
         print(f"Protein: {protein_score:.2f}% of goal reached")
         print(f"Fat: {fat_score:.2f}% of goal reached")
@@ -160,7 +165,9 @@ class FoodTracker:
         params = {"query": food_name}
 
         try:
-            response = requests.get(API_URL, headers=headers, params=params, timeout=10)
+            response = requests.get(
+                API_URL, headers=headers, params=params, timeout=10
+            )
             response.raise_for_status()
             data = response.json()
 
@@ -176,11 +183,14 @@ class FoodTracker:
                 )
 
                 print(f"Nutrition data retrieved for {food_name}:")
-                print(f"Calories: {food.calories}, Protein: {food.protein}g, Fat: {food.fat}g, Carbs: {food.carbs}g")
+                print(
+                    f"Calories: {food.calories}, Protein: {food.protein}g, "
+                    f"Fat: {food.fat}g, Carbs: {food.carbs}g"
+                )
 
                 return food
             else:
-                print("Food item is not recognised or we are not reading your input.\n")
+                print("Food item not recognized.")
                 return None
         except requests.RequestException as e:
             print(f"Error fetching nutrition data: {e}")
@@ -202,52 +212,20 @@ class FoodTracker:
 
             if choice == "1":
                 food_name = input("What did you have for dinner? Food Item: ")
-                use_api = input("Do you know the calorie and macronutrient values? (y/n): ").strip().lower()
+                use_api = input(
+                    "Do you know the calorie and macronutrient values? "
+                    "(y/n): "
+                ).strip().lower()
 
                 if use_api == 'n':
                     food = self.fetch_nutrition(food_name)
                     if food:
                         self.add_food(food)
                 else:
-                    while True:
-                        try:
-                            calories = int(input("Calories (round number): "))
-                            if calories <= 0:
-                                print("Please enter a round number.")
-                                continue
-                            break
-                        except ValueError:
-                            print("Invalid input. Please enter a round number for calories.")
-
-                    while True:
-                        try:
-                            protein = int(input("Protein (round number): "))
-                            if protein <= 0:
-                                print("Please enter a round number.")
-                                continue
-                            break
-                        except ValueError:
-                            print("Invalid input. Please enter a round number for protein.")
-
-                    while True:
-                        try:
-                            fat = int(input("Fat (whole number): "))
-                            if fat <= 0:
-                                print("Please enter a round number.")
-                                continue
-                            break
-                        except ValueError:
-                            print("Invalid input. Please enter a round number for fat.")
-
-                    while True:
-                        try:
-                            carbs = int(input("Carbs (round number): "))
-                            if carbs <= 0:
-                                print("Please enter a round number.")
-                                continue
-                            break
-                        except ValueError:
-                            print("Invalid input. Please enter a round number for carbs.")
+                    calories = self.get_nutrient_input("Calories")
+                    protein = self.get_nutrient_input("Protein")
+                    fat = self.get_nutrient_input("Fat")
+                    carbs = self.get_nutrient_input("Carbs")
 
                     food = Food(food_name, calories, protein, fat, carbs)
                     self.add_food(food)
@@ -263,10 +241,22 @@ class FoodTracker:
 
             elif choice.lower() == 'q':
                 done = True
-                print("Great job! You've successfully logged all your calories for the day!")
+                print("Great job!You've logged all your calories for the day!")
 
             else:
                 print("Invalid choice, please try again.")
+
+    def get_nutrient_input(self, nutrient_name):
+        """Helper method to get nutrient input from the user."""
+        while True:
+            try:
+                value = int(input(f"{nutrient_name} (round number): "))
+                if value <= 0:
+                    print("Please enter a positive round number.")
+                    continue
+                return value
+            except ValueError:
+                print("Invalid input. Please enter a round number.")
 
 
 if __name__ == "__main__":
