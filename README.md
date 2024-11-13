@@ -2,12 +2,16 @@
 
 ## About
 
-Calorie Mind is a powerful and user-friendly app designed to help you take control of your daily nutrition and meet your fitness goals. Whether you're trying to manage your weight, fuel your workouts, or simply eat healthier, Calorie Mind provides all the tools you need to make mindful eating choices. With features like custom food entries, daily goal tracking, insightful progress analysis, and weekly summaries, Calorie Mind is your go-to guide for a balanced lifestyle. Think Calories with Calorie Mind.
+Calorie Mind is user-friendly app designed to help you take control of your daily nutrition and meet your fitness goals. Whether you're trying to manage your weight, fuel your workouts, or simply eat healthier, Calorie Mind provides all the tools you need to make mindful eating choices. With features like custom food entries, daily goal tracking, insightful progress analysis, and weekly summaries, Calorie Mind is your go-to guide for a balanced lifestyle. Think Calories with Calorie Mind.
+
+### Target Users
+
+
 
  # How to Use Calorie Mind
 
-- Add Your Dinner
-    - Select option 1 to add your dinner.
+- Add Your meals
+    - Select option 1 to add meals for the day.
     - You will be prompted to input a food item. If you're unsure about the nutritional information, simply enter the food name, and Calorie Mind will retrieve the data via an API, providing the correct details for calories, protein, fat, and carbohydrates.
 
 - Record New Daily Goals
@@ -20,7 +24,7 @@ Calorie Mind is a powerful and user-friendly app designed to help you take contr
       have been met based on your food entries.
 
 - Calculate Weekly Totals:
-    - Calorie Mind will calculate and display the total values for Calories, Protein, and Fat over the past seven days, helping you track your progress and adjust your diet if needed.
+    - Calorie Mind will calculate and display the total values for Calories, Protein, and Fat over the last seven days, helping you track your progress and adjust your diet if needed.
 
 # Features
 
@@ -59,9 +63,7 @@ Calorie Mind is a powerful and user-friendly app designed to help you take contr
 ## Future Features
 
 - Add a GUI interface - upgrade from a mock terminal.
-- Expand Meal Entry Options. Include Breakfast and Lunch in Totals Calculations
-- Extend the New Daily Goals and Weekly Totals features to incorporate Breakfast and Lunch data, allowing users to view cumulative 
-  weekly values across all meals.
+- Expand Weekly Totals features to alert the user if they skipped a day. It currently calculates the last seven days.
 
 # Testing
 

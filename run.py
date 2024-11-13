@@ -48,7 +48,6 @@ class FoodTracker:
         """Adds a food entry to the list and logs it in Google Sheets."""
         self.today.append(food)
         self.add_to_google_sheets(food)
-        print("Successfully added!")
 
     def add_to_google_sheets(self, food: Food):
         """Appends a food entry to Google Sheets."""
@@ -56,7 +55,7 @@ class FoodTracker:
         row = [timestamp, food.name, food.calories, food.protein, food.fat,
                food.carbs]
         WORKSHEET.append_row(row)
-        print("Entry added to Google Sheets successfully.")
+        print("\nEntry added to Google Sheets successfully.")
 
     def update_goals_sheet(self):
         """Updates Google Sheets with consumed and goal data for the day."""
@@ -71,7 +70,7 @@ class FoodTracker:
         ]
 
         GOALS_WORKSHEET.append_row(row)
-        print("Daily consumed data and goals added to the goals worksheet.")
+        print("\nDaily consumed data and goals added to the goals worksheet.")
 
     def record_new_goals(self):
         """Prompts the user for new goals and updates the goals worksheet."""
@@ -86,7 +85,7 @@ class FoodTracker:
                     raise ValueError("Goals must be round numbers.")
 
                 self.update_goals_sheet()
-                print("New goals set and logged successfully.")
+                print("\nNew goals set and logged successfully.")
                 break
 
             except ValueError:
@@ -97,42 +96,24 @@ class FoodTracker:
         if goal == 0:
             return 0
         percentage = (consumed / goal) * 100
-        return min(percentage, 100) if percentage <= 100 else 100 - (
-            percentage - 100
-        )
+        return min(percentage, 100) if percentage <= 100 else 100 - (percentage - 100)
 
     def calculate_goal_percentage(self):
         """Calculates and displays the percentage of daily goals reached."""
-        entries = WORKSHEET.get_all_values()
+        if not self.today:
+           print("No entry has been made yet.")
+           return
+    
+        """Calculates and displays the percentage of daily goals reached."""
+        protein_sum = sum(food.protein for food in self.today)
+        fats_sum = sum(food.fat for food in self.today)
+        carbs_sum = sum(food.carbs for food in self.today)
 
-        # Extract dates and determine the last entry date
-        dates = [entry[0].split(" ")[0] for entry in entries[1:]]
-        last_date = max(dates) if dates else None
-
-        if not last_date:
-            print("No entries found in the worksheet.")
-            return
-
-        # Filter entries by the last recorded date
-        last_date_entries = [
-            entry for entry in entries[1:] if entry[0].startswith(last_date)
-        ]
-
-        if not last_date_entries:
-            print("No entry has been made yet for the last recorded date.")
-            return
-
-        # Calculate protein, fat, and carbs for the last date entries
-        protein_sum = sum(int(entry[3]) for entry in last_date_entries)
-        fats_sum = sum(int(entry[4]) for entry in last_date_entries)
-        carbs_sum = sum(int(entry[5]) for entry in last_date_entries)
-
-        # Calculate percentage of each goal
         protein_score = self.calculate_percentage(protein_sum, self.protein_goal)
         fat_score = self.calculate_percentage(fats_sum, self.fat_goal)
         carbs_score = self.calculate_percentage(carbs_sum, self.carbs_goal)
 
-        print(f"\nDaily Goal Achievement for {last_date}:")
+        print("\nDaily Goal Achievement:")
         print(f"Protein: {protein_score:.2f}% of goal reached")
         print(f"Fat: {fat_score:.2f}% of goal reached")
         print(f"Carbs: {carbs_score:.2f}% of goal reached\n")
@@ -152,7 +133,7 @@ class FoodTracker:
         timestamp = datetime.now().strftime("%Y-%m-%d")
         row = [timestamp, total_calories, total_protein, total_fat, total_carbs]
         WEEKTOTAL_WORKSHEET.append_row(row)
-        print("Weekly totals added to Google Sheets successfully.")
+        print("\nWeekly totals added to Google Sheets successfully.")
 
         print("\nWeekly Totals (Last 7 Days):")
         print(f"Total Calories: {total_calories}")
@@ -182,7 +163,7 @@ class FoodTracker:
                     carbs=int(item.get("carbohydrates_total_g", 0))
                 )
 
-                print(f"Nutrition data retrieved for {food_name}:")
+                print(f"\nNutrition data retrieved for {food_name}:")
                 print(
                     f"Calories: {food.calories}, Protein: {food.protein}g, "
                     f"Fat: {food.fat}g, Carbs: {food.carbs}g"
@@ -190,10 +171,10 @@ class FoodTracker:
 
                 return food
             else:
-                print("Food item not recognized.")
+                print("\nFood item not recognized.")
                 return None
         except requests.RequestException as e:
-            print(f"Error fetching nutrition data: {e}")
+            print(f"\nError fetching nutrition data: {e}")
             return None
 
     def main_menu(self):
@@ -201,7 +182,7 @@ class FoodTracker:
         done = False
         while not done:
             print(
-                "(1) Add your dinner\n"
+                "\n(1) Add your meals for today\n"
                 "(2) Record new daily goals\n"
                 "(3) Review your daily goal's analysis\n"
                 "(4) Calculate weekly totals\n"
@@ -211,9 +192,9 @@ class FoodTracker:
             choice = input("Enter your choice: ")
 
             if choice == "1":
-                food_name = input("What did you have for dinner? Food Item: ")
+                food_name = input("\nWhat did you have today? Log a meal - Food Item: ")
                 use_api = input(
-                    "Do you know the calorie and macronutrient values? "
+                    "\nDo you know the calorie and macronutrient values? "
                     "(y/n): "
                 ).strip().lower()
 
@@ -241,10 +222,10 @@ class FoodTracker:
 
             elif choice.lower() == 'q':
                 done = True
-                print("Great job!You've logged all your calories for the day!")
+                print("Great job! You've logged all your calories for the day!")
 
             else:
-                print("Invalid choice, please try again.")
+                print("\nInvalid choice, please try again.")
 
     def get_nutrient_input(self, nutrient_name):
         """Helper method to get nutrient input from the user."""
@@ -256,7 +237,7 @@ class FoodTracker:
                     continue
                 return value
             except ValueError:
-                print("Invalid input. Please enter a round number.")
+                print("\nInvalid input. Please enter a round number.")
 
 
 if __name__ == "__main__":
