@@ -69,11 +69,13 @@ Calorie Mind is user-friendly app designed to help you take control of your dail
 
  ### Additional notes: 
 
-      Use of Libraries
+    Use of Libraries
 
-     - The gspread library manages API communication with Google Sheets, while google-auth handles authentication to ensure secure access to the spreadsheet data.
+    - The gspread library manages API communication with Google Sheets, while google-auth handles authentication to ensure secure access to the spreadsheet data.
 
-     - For example, the gspread library plays a significant role in collecting data for weekly totals by retrieving the last 7 entries from the Google Sheet. Based on a date timestamp recorded with each entry, these entries are accessed from the "Week Total" sheet, allowing for calculation and display of weekly data collection.    
+    - For example, the gspread library plays a significant role in collecting data for weekly totals by retrieving the last 7 entries from the Google Sheet. Based on a date timestamp recorded with each entry, these entries are accessed from the "Week Total" sheet, allowing for calculation and display of weekly data collection.    
+
+    - Improved console output readability by adding line spacing for clearer print results.(\n)
 
 ## Future Features
 
@@ -97,7 +99,8 @@ Calorie Mind is user-friendly app designed to help you take control of your dail
 | Select option 4                   | Calculates weekly totals. Retrieves from Google worksheet and sums up the last 7 entries.                                                                                                                  | ✅ PASS          |                           
 | Select q                          | Select q for quit. Exits mock terminal program.                                     | ✅ PASS          |
 
-
+   ![Calorie and Macronutrient entries](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/usertesting.png)
+   
 ## Bugs/Updates after Testing
 
 At the start of coding the app, I ran into some bugs. The following bugs I encountered are as follows:
@@ -110,9 +113,8 @@ At the start of coding the app, I ran into some bugs. The following bugs I encou
   Solution: Added exception handling to manage cases where the food item is not recognized by the API or if there’s invalid input. Now, when this occurs, the application catches the error and prints a helpful message—“Food item not recognised”—to the console. 
 
 - Add conditional check for invalid user input, or when user inputs a decimal point or letters for entering Calories and macronutrients.
-
-- Previously, the application did not handle invalid inputs correctly when users entered calorie and macronutrient values. The application would throw 
-  an error if users entered non-integer values, such as decimals, letters, or special characters.
+  Previously, the application did not handle invalid inputs correctly when users entered calorie and macronutrient values. The application would reset 
+  to the main menu silently if users entered non-integer values, such as decimals, letters, or special characters.
  
 All bugs are presently fixed.
 
@@ -133,12 +135,11 @@ The steps for deployment are as follows:
 - Set the build packs to Python and NodeJS in that order
 - Link the Heroku app to the Github repository 'Calorie Mind'
 - Click on Deploy
-- Click view to get the site link
 
 ## Credits 
 
   - The python code for the app Calorie Mind was refactored to adopt an object-oriented approach. I sourced this youtube tutorial and used it as a rough guide. https://www.youtube.com/watch?v=0-LDsQpKYFU
-  - The initialization code for Google Sheets API access is adapted from the Love Sandwiches workshop.
+
   - Calorie Ninja API documentation: https://calorieninjas.com/api
 
   
