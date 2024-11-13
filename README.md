@@ -147,7 +147,7 @@ The steps for deployment are as follows:
   - The python code for the app Calorie Mind was refactored to adopt an object-oriented approach. I sourced this youtube tutorial and used it as a rough guide: https://www.youtube.com/watch?v=0-LDsQpKYFU
 
   - [Real Python](https://realpython.com/.com/)
-  - [Calorie Ninja API documentation](https://calorieninjas.com/ap)
+  - [Calorie Ninja API documentation](https://calorieninjas.com/api)
   - Love Sandwiches (Code Institute) - adapted the Google Sheets API authentication and setup code
   - [Stack Overflow](https://stackoverflow.com/questions/10004850/python-classes-and-oop-basics)
   
