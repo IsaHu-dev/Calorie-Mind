@@ -83,6 +83,12 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
   - Expand Weekly Totals features to alert the user if they skipped a day. It currently calculates the last seven days.
   - Add a leaderboard on scores once the GUI is designed and implemented.
 
+## Flowchart
+
+![Flowchart](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/flowchart.jpg)
+
+
+
 # Testing
 
 ## Manual Testing
@@ -138,8 +144,10 @@ The steps for deployment are as follows:
 
 ## Credits 
 
-  - The python code for the app Calorie Mind was refactored to adopt an object-oriented approach. I sourced this youtube tutorial and used it as a rough guide. https://www.youtube.com/watch?v=0-LDsQpKYFU
+  - The python code for the app Calorie Mind was refactored to adopt an object-oriented approach. I sourced this youtube tutorial and used it as a rough guide: https://www.youtube.com/watch?v=0-LDsQpKYFU
 
-  - Calorie Ninja API documentation: https://calorieninjas.com/api
-
+  - [Real Python](https://realpython.com/.com/)
+  - [Calorie Ninja API documentation](https://calorieninjas.com/ap)
+  - Love Sandwiches (Code Institute) - adapted the Google Sheets API authentication and setup code
+  - [Stack Overflow](https://stackoverflow.com/questions/10004850/python-classes-and-oop-basics)
   
