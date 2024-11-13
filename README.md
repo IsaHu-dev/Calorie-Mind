@@ -100,8 +100,6 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
 ![Flowchart](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/flowchart.jpg)
 
-
-
 # Testing
 
 ## Manual Testing
