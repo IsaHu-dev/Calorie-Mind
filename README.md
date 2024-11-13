@@ -6,7 +6,7 @@ Calorie Mind is user-friendly app designed to help you take control of your dail
 
 ### Target Users
 
-Calorie Mind is designed for individuals aiming to promote healthier lifestyles through mindful calorie management and tracking. Target users include fitness-conscious individuals looking to optimize their nutrition, heart disease charities focusing on dietary health for their patients, and well-being clinics aiming to support clients in achieving balanced dietary habits. Calorie Mind is ideal for all ages who wish to be informed of their calorie intake for better health and life.
+Calorie Mind is designed for individuals aiming to promote healthier lifestyles through mindful calorie management and tracking. Target users include fitness-conscious individuals looking to optimize their nutrition, heart disease charities, and well-being clinics that aim to support clients in achieving balanced dietary habits. Calorie Mind is ideal for all ages who wish to be informed of their calorie intake for better health and life.
 
  # How to Use Calorie Mind
 
