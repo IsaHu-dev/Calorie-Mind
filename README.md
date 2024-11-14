@@ -104,17 +104,19 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
 ## Manual Testing
 
-
 | Test Case                         | Expected Result                                                                     | Test Result |
 |-----------------------------------|-----------------------------------------------------------------------              |-------------|
-| run program                       | Click run program.  The app will appear with a multiple choice selection            | ✅ PASS          |
-| Select option 1                   | Prompt for user to enter their protein, fat and carbs.                              | ✅ PASS          |
-| Select option 1                   | Prompt user to select if they know the macronutrient values. Select n or y.                                                                                                                        | ✅ PASS          |
-| Select option 1                   | Retrieve from API Calorie Ninjas                                                    | ✅ PASS          |                                
-| Select option 2                   | Prompt to input your daily target goals for Protein, Fat, and Carbs.                                                                                                                    | ✅ PASS          |
-| Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries.                                                                                                             | ✅ PASS          |                       
-| Select option 4                   | Calculates weekly totals. Retrieves from Google worksheet and sums up the last 7 entries.                                                                                                                  | ✅ PASS          |                           
+| Run program                       | Click run program.  The app will appear with a multiple choice selection.           | ✅ PASS          |
+| Select option 1                   | Prompt user to enter their protein, fat and carbs.                                  | ✅ PASS          |
+| Select option 1                   | Prompt user to select if they know the macronutrient values. Select n (no) or y (yes).                                                                                                                    | ✅ PASS          |
+| Select option 1                   | Retrieve API Calorie Ninjas.                                                        | ✅ PASS          |
+| Handles invalid input data        | The app recognises an unrecognised item, the console will display a message "Food item not recognized"                                                      | ✅ PASS          |
+| Select option 2                   | Prompt to input your daily target goals for Protein, Fat, and Carbs.                | ✅ PASS          |
+| Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries.                                                                                                                  | ✅ PASS          |
+| Handles invalid input data        | The console will display a messsage "Please enter valid round numbers for each goal."| ✅ PASS          |
+| Selection option 4.               | Calculates weekly totals of calories and macronutrients. Retrieves from Google worksheet and sums up the last 7 entries.    | ✅ PASS          |
 | Select q                          | Select q for quit. Exits mock terminal program.                                     | ✅ PASS          |
+
 
    ![Calorie and Macronutrient entries](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/usertesting.png)
    
@@ -132,6 +134,10 @@ At the start of coding the app, I ran into some bugs. The following bugs I encou
   to the main menu silently if users entered non-integer values, such as decimals, letters, or special characters.
  
 All bugs are presently fixed.
+
+## Code Style and Readability
+
+- Format code with Black Python Formatter to maintain consistent code style and readability.
 
 ## Validator Testing
 
@@ -163,5 +169,7 @@ The steps for deployment are as follows:
 
   - This project uses modified code for the Google Sheets API and client setup, based on the "Love Sandwiches" walkthrough by Code Institute. The   
     remaining code is original and was developed independently for this project.
+
+  ![Code Attribution](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/codeatt.png)
 
  
