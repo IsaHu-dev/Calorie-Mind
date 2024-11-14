@@ -161,7 +161,7 @@ The steps for deployment are as follows:
 
  ## Code Attribution
 
-  - This project includes adapted code from the "Love Sandwiches" (Code Institute) walkthrough. The remaining code is original and was developed 
-    independently for this project.
+  - This project uses modified code for the Google Sheets API and client setup, based on the "Love Sandwiches" walkthrough by Code Institute. The   
+    remaining code is original and was developed independently for this project.
 
  
