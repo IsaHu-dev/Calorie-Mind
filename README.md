@@ -157,6 +157,11 @@ The steps for deployment are as follows:
 
   - [Real Python](https://realpython.com/.com/)
   - [Calorie Ninja API documentation](https://calorieninjas.com/api)
-  - Love Sandwiches (Code Institute) - adapted the Google Sheets API authentication and setup code
   - [Stack Overflow](https://stackoverflow.com/questions/10004850/python-classes-and-oop-basics)
-  
+
+ ## Code Attribution
+
+  - This project includes adapted code from the "Love Sandwiches" (Code Institute) walkthrough. The remaining code is original and was developed 
+    independently for this project.
+
+ 
