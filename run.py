@@ -1,7 +1,7 @@
 """A module to track daily food intake, nutritional goals."""
 
 import gspread
-import requests  # Import requests for making API calls
+import requests
 from google.oauth2.service_account import Credentials
 from dataclasses import dataclass
 from datetime import datetime
@@ -37,6 +37,58 @@ class Food:
 
 class FoodTracker:
     """Tracks daily food intake, goals, and updates Google Sheets."""
+
+    def main_menu(self):
+        """Displays the main menu and handles user input."""
+        done = False
+        while not done:
+            print(
+                "\n(1) Add your meals for today\n"
+                "(2) Record new daily goals\n"
+                "(3) Review your daily goal's analysis\n"
+                "(4) Calculate weekly totals\n"
+                "(q) Quit\n"
+            )
+
+            choice = input("Enter your choice: ")
+
+            if choice == "1":
+                food_name = input(
+                    "\nWhat did you have today? Log a meal - Food Item: "
+                )
+                use_api = input(
+                    "\nDo you know the calorie and macronutrient values? "
+                    "(y/n): "
+                ).strip().lower()
+
+                if use_api == 'n':
+                    food = self.fetch_nutrition(food_name)
+                    if food:
+                        self.add_food(food)
+                else:
+                    calories = self.get_nutrient_input("Calories")
+                    protein = self.get_nutrient_input("Protein")
+                    fat = self.get_nutrient_input("Fat")
+                    carbs = self.get_nutrient_input("Carbs")
+
+                    food = Food(food_name, calories, protein, fat, carbs)
+                    self.add_food(food)
+
+            elif choice == "2":
+                self.record_new_goals()
+
+            elif choice == "3":
+                self.calculate_goal_percentage()
+
+            elif choice == "4":
+                self.calculate_weekly_totals()
+
+            elif choice.lower() == 'q':
+                done = True
+                print("Great job! You've logged all your calories for the day!")
+
+            else:
+                print("\nInvalid choice, please try again.")
 
     def __init__(self):
         self.today = []  # Stores daily food entries
@@ -111,7 +163,6 @@ class FoodTracker:
             print("No entry has been made yet.")
             return
 
-        # Calculate protein, fat, and carbs for today's entries
         protein_sum = sum(food.protein for food in self.today)
         fats_sum = sum(food.fat for food in self.today)
         carbs_sum = sum(food.carbs for food in self.today)
@@ -186,58 +237,6 @@ class FoodTracker:
         except requests.RequestException as e:
             print(f"\nError fetching nutrition data: {e}")
             return None
-
-    def main_menu(self):
-        """Displays the main menu and handles user input."""
-        done = False
-        while not done:
-            print(
-                "\n(1) Add your meals for today\n"
-                "(2) Record new daily goals\n"
-                "(3) Review your daily goal's analysis\n"
-                "(4) Calculate weekly totals\n"
-                "(q) Quit\n"
-            )
-
-            choice = input("Enter your choice: ")
-
-            if choice == "1":
-                food_name = input(
-                    "\nWhat did you have today? Log a meal - Food Item: "
-                )
-                use_api = input(
-                    "\nDo you know the calorie and macronutrient values? "
-                    "(y/n): "
-                ).strip().lower()
-
-                if use_api == 'n':
-                    food = self.fetch_nutrition(food_name)
-                    if food:
-                        self.add_food(food)
-                else:
-                    calories = self.get_nutrient_input("Calories")
-                    protein = self.get_nutrient_input("Protein")
-                    fat = self.get_nutrient_input("Fat")
-                    carbs = self.get_nutrient_input("Carbs")
-
-                    food = Food(food_name, calories, protein, fat, carbs)
-                    self.add_food(food)
-
-            elif choice == "2":
-                self.record_new_goals()
-
-            elif choice == "3":
-                self.calculate_goal_percentage()
-
-            elif choice == "4":
-                self.calculate_weekly_totals()
-
-            elif choice.lower() == 'q':
-                done = True
-                print("Great job! You've logged all your calories for the day!")
-
-            else:
-                print("\nInvalid choice, please try again.")
 
     def get_nutrient_input(self, nutrient_name):
         """Helper method to get nutrient input from the user."""
