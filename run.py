@@ -10,13 +10,13 @@ from datetime import datetime
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
+    "https://www.googleapis.com/auth/drive",
 ]
 
-CREDS = Credentials.from_service_account_file('creds.json')
+CREDS = Credentials.from_service_account_file("creds.json")
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('calorietracker')
+SHEET = GSPREAD_CLIENT.open("calorietracker")
 WORKSHEET = SHEET.worksheet("Entries")
 GOALS_WORKSHEET = SHEET.worksheet("Goal")
 WEEKTOTAL_WORKSHEET = SHEET.worksheet("WeekTotal")
@@ -28,6 +28,7 @@ API_URL = "https://api.calorieninjas.com/v1/nutrition"
 @dataclass
 class Food:
     """Data class to store food item details."""
+
     name: str
     calories: int
     protein: int
@@ -53,15 +54,16 @@ class FoodTracker:
             choice = input("Enter your choice: ")
 
             if choice == "1":
-                food_name = input(
-                    "\nWhat did you have today? Log a meal - Food Item: "
+                food_name = input("\nWhat did you have today? Log a meal - Food Item: ")
+                use_api = (
+                    input(
+                        "\nDo you know the calorie and macronutrient values? " "(y/n): "
+                    )
+                    .strip()
+                    .lower()
                 )
-                use_api = input(
-                    "\nDo you know the calorie and macronutrient values? "
-                    "(y/n): "
-                ).strip().lower()
 
-                if use_api == 'n':
+                if use_api == "n":
                     food = self.fetch_nutrition(food_name)
                     if food:
                         self.add_food(food)
@@ -83,7 +85,7 @@ class FoodTracker:
             elif choice == "4":
                 self.calculate_weekly_totals()
 
-            elif choice.lower() == 'q':
+            elif choice.lower() == "q":
                 done = True
                 print("Great job! You've logged all your calories for the day!")
 
@@ -104,10 +106,7 @@ class FoodTracker:
     def add_to_google_sheets(self, food: Food):
         """Appends a food entry to Google Sheets."""
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        row = [
-            timestamp, food.name, food.calories, food.protein,
-            food.fat, food.carbs
-        ]
+        row = [timestamp, food.name, food.calories, food.protein, food.fat, food.carbs]
         WORKSHEET.append_row(row)
         print("\nEntry added to Google Sheets successfully.")
 
@@ -119,8 +118,13 @@ class FoodTracker:
 
         timestamp = datetime.now().strftime("%Y-%m-%d")
         row = [
-            timestamp, protein_sum, fats_sum, carbs_sum,
-            self.protein_goal, self.fat_goal, self.carbs_goal
+            timestamp,
+            protein_sum,
+            fats_sum,
+            carbs_sum,
+            self.protein_goal,
+            self.fat_goal,
+            self.carbs_goal,
         ]
 
         GOALS_WORKSHEET.append_row(row)
@@ -135,9 +139,8 @@ class FoodTracker:
                 self.carbs_goal = int(input("Enter your new carb goal: "))
 
                 if any(
-                    goal % 1 != 0 for goal in [
-                        self.protein_goal, self.fat_goal, self.carbs_goal
-                    ]
+                    goal % 1 != 0
+                    for goal in [self.protein_goal, self.fat_goal, self.carbs_goal]
                 ):
                     raise ValueError("Goals must be round numbers.")
 
@@ -153,9 +156,7 @@ class FoodTracker:
         if goal == 0:
             return 0
         percentage = (consumed / goal) * 100
-        return min(percentage, 100) if percentage <= 100 else 100 - (
-            percentage - 100
-        )
+        return min(percentage, 100) if percentage <= 100 else 100 - (percentage - 100)
 
     def calculate_goal_percentage(self):
         """Calculates and displays the percentage of daily goals reached."""
@@ -189,10 +190,7 @@ class FoodTracker:
         total_carbs = sum(int(entry[5]) for entry in last_7_entries)
 
         timestamp = datetime.now().strftime("%Y-%m-%d")
-        row = [
-            timestamp, total_calories, total_protein,
-            total_fat, total_carbs
-        ]
+        row = [timestamp, total_calories, total_protein, total_fat, total_carbs]
         WEEKTOTAL_WORKSHEET.append_row(row)
         print("\nWeekly totals added to Google Sheets successfully.")
 
@@ -207,9 +205,7 @@ class FoodTracker:
         params = {"query": food_name}
 
         try:
-            response = requests.get(
-                API_URL, headers=headers, params=params, timeout=10
-            )
+            response = requests.get(API_URL, headers=headers, params=params, timeout=10)
             response.raise_for_status()
             data = response.json()
 
@@ -221,7 +217,7 @@ class FoodTracker:
                     calories=int(item.get("calories", 0)),
                     protein=int(item.get("protein_g", 0)),
                     fat=int(item.get("fat_total_g", 0)),
-                    carbs=int(item.get("carbohydrates_total_g", 0))
+                    carbs=int(item.get("carbohydrates_total_g", 0)),
                 )
 
                 print(f"\nNutrition data retrieved for {food_name}:")
