@@ -54,13 +54,13 @@ class FoodTracker:
             choice = input("Enter your choice: ")
 
             if choice == "1":
-                food_name = input("\nWhat did you have today? Log a meal - Food Item: ")
+                food_name = input(
+                    "\nWhat did you have today? Log a meal - Food Item: ")
                 use_api = (
                     input(
-                        "\nDo you know the calorie and macronutrient values? " "(y/n): "
-                    )
-                    .strip()
-                    .lower()
+                        "\nDo you know the calorie and macronutrient values? "
+                        "(y/n): "
+                    ).strip().lower()
                 )
 
                 if use_api == "n":
@@ -106,7 +106,14 @@ class FoodTracker:
     def add_to_google_sheets(self, food: Food):
         """Appends a food entry to Google Sheets."""
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        row = [timestamp, food.name, food.calories, food.protein, food.fat, food.carbs]
+        row = [
+            timestamp,
+            food.name,
+            food.calories,
+            food.protein,
+            food.fat,
+            food.carbs,
+        ]
         WORKSHEET.append_row(row)
         print("\nEntry added to Google Sheets successfully.")
 
@@ -139,8 +146,8 @@ class FoodTracker:
                 self.carbs_goal = int(input("Enter your new carb goal: "))
 
                 if any(
-                    goal % 1 != 0
-                    for goal in [self.protein_goal, self.fat_goal, self.carbs_goal]
+                    goal % 1 != 0 for goal in
+                    [self.protein_goal, self.fat_goal, self.carbs_goal]
                 ):
                     raise ValueError("Goals must be round numbers.")
 
@@ -156,7 +163,8 @@ class FoodTracker:
         if goal == 0:
             return 0
         percentage = (consumed / goal) * 100
-        return min(percentage, 100) if percentage <= 100 else 100 - (percentage - 100)
+        return min(percentage, 100) if percentage <= 100 else 100 - (
+             percentage - 100)
 
     def calculate_goal_percentage(self):
         """Calculates and displays the percentage of daily goals reached."""
@@ -205,7 +213,9 @@ class FoodTracker:
         params = {"query": food_name}
 
         try:
-            response = requests.get(API_URL, headers=headers, params=params, timeout=10)
+            response = requests.get(
+                API_URL, headers=headers, params=params, timeout=10
+            )
             response.raise_for_status()
             data = response.json()
 

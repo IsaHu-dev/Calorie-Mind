@@ -109,7 +109,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 | Run program                       | Click run program.  The app will appear with a multiple choice selection.           | ✅ PASS          |
 | Select option 1                   | Prompt user to enter their protein, fat and carbs.                                  | ✅ PASS          |
 | Select option 1                   | Prompt user to select if they know the macronutrient values. Select n (no) or y (yes).                                                                                                                    | ✅ PASS          |
-| Select option 1                   | Retrieve API Calorie Ninjas.                                                        | ✅ PASS          |
+| Select option 1                   | Retrieve API from Calorie Ninjas                                                    | ✅ PASS          |
 | Handles invalid input data        | The app recognises an unrecognised item, the console will display a message "Food item not recognized"                                                      | ✅ PASS          |
 | Select option 2                   | Prompt to input your daily target goals for Protein, Fat, and Carbs.                | ✅ PASS          |
 | Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries.                                                                                                                  | ✅ PASS          |
@@ -171,5 +171,8 @@ The steps for deployment are as follows:
     remaining code is original and was developed independently for this project.
 
   ![Code Attribution](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/codeatt.png)
+
+  ## Acknowledgements
+  - Thanks to Moritz Wach - mentor for PP3 project guidance.
 
  
