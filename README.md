@@ -98,7 +98,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
 ## Flowchart
 
-![Flowchart](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/flowchart.jpg)
+![Flowchart](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/flowchart.png)
 
 # Testing
 
@@ -141,7 +141,7 @@ All bugs are presently fixed.
 
 ## Validator Testing
 
-- Passed the CI Python Linter, with the exception of Lines 119 and 237 - The CI linter flags certain lines as exceeding the maximum 79 character limit. However, the current line length is necessary to maintain functionality for the code’s operations, and breaking these lines could impact on it's function and output an error in the console.
+- Passed the CI Python Linter, with the exception of Lines 90,179 and 201 - The CI linter flags certain lines as exceeding the maximum 79 character limit. However, the current line length for the abovementioned lines are necessary to maintain functionality for the code’s operations, and breaking these lines could impact on it's function and output an error in the console.
   
 - Fully passed the PYLINT VALIDATOR - a pep8 tool.
 ![Pylint](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/pylint.png)
