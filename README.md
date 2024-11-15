@@ -132,7 +132,12 @@ At the start of coding the app, I ran into some bugs. The following bugs I encou
 - Add conditional check for invalid user input, or when user inputs a decimal point or letters for entering Calories and macronutrients.
   Previously, the application did not handle invalid inputs correctly when users entered calorie and macronutrient values. The application would reset 
   to the main menu silently if users entered non-integer values, such as decimals, letters, or special characters.
- 
+
+- Fixed bug to ensure that 0 is accepted as valid input from the user. In the get_nutrient_input function, it checks that the input is greater 
+  than or equal to 0. Accepts 0 and positive integers as valid input.
+
+  ![Positive integers and zeros](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/roundnumber.png)
+
 All bugs are presently fixed.
 
 ## Code Style and Readability
@@ -141,7 +146,7 @@ All bugs are presently fixed.
 
 ## Validator Testing
 
-- Passed the CI Python Linter, with the exception of Lines 90,179 and 201 - The CI linter flags certain lines as exceeding the maximum 79 character limit. However, the current line length for the abovementioned lines are necessary to maintain functionality for the code’s operations, and breaking these lines could impact on it's function and output an error in the console.
+- Passed the CI Python Linter, with the exception of Lines 92,172 and 194 - The CI linter flags certain lines as exceeding the maximum 79 character limit. However, the current line length for the abovementioned lines are necessary to maintain functionality for the code’s operations, and breaking these lines could impact on it's function and output an error in the console.
 
  ![CI Python Linter](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/cilinter.png)
 
