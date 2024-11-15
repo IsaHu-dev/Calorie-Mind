@@ -112,7 +112,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 | Select option 1                   | Retrieve API from Calorie Ninjas                                                    | ✅ PASS          |
 | Handles invalid input data        | The app recognises an unrecognised item, the console will display a message "Food item not recognized"                                                      | ✅ PASS          |
 | Select option 2                   | Prompt to input your daily target goals for Protein, Fat, and Carbs.                | ✅ PASS          |
-| No User input                     | The console will display a message "No entry has been made yet" (when it detects self.today list is empty)                | ✅ PASS          |
+| Detects no user input             | The console will display a message "No entry has been made yet" (when it detects self.today list is empty)                | ✅ PASS          |
 | Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries.                                                                                                                  | ✅ PASS          |
 | Handles invalid input data        | The console will display a messsage "Please enter valid round numbers for each goal."| ✅ PASS          |
 | Selection option 4.               | Calculates weekly totals of calories and macronutrients. Retrieves from Google worksheet and sums up the last 7 entries.    | ✅ PASS          |
@@ -148,6 +148,8 @@ All bugs are presently fixed.
 ## Validator Testing
 
 - Passed the CI Python Linter, with the exception of Lines 92,172 and 194 - The CI linter flags certain lines as exceeding the maximum 79 character limit. However, the current line length for the abovementioned lines are necessary to maintain functionality for the code’s operations, and breaking these lines could impact on it's function and output an error in the console.
+
+- Please note that the validation testing was completed prior to adding comments to the code.
 
  ![CI Python Linter](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/cilinter.png)
 
