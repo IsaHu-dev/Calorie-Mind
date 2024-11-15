@@ -1,5 +1,4 @@
 """A module to track daily food intake, nutritional goals."""
-
 import gspread
 import requests
 from google.oauth2.service_account import Credentials
