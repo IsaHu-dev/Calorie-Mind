@@ -112,6 +112,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 | Select option 1                   | Retrieve API from Calorie Ninjas                                                    | ✅ PASS          |
 | Handles invalid input data        | The app recognises an unrecognised item, the console will display a message "Food item not recognized"                                                      | ✅ PASS          |
 | Select option 2                   | Prompt to input your daily target goals for Protein, Fat, and Carbs.                | ✅ PASS          |
+| No User input                     | The console will display a message "No entry has been made yet" (when it detects self.today list is empty)                | ✅ PASS          |
 | Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries.                                                                                                                  | ✅ PASS          |
 | Handles invalid input data        | The console will display a messsage "Please enter valid round numbers for each goal."| ✅ PASS          |
 | Selection option 4.               | Calculates weekly totals of calories and macronutrients. Retrieves from Google worksheet and sums up the last 7 entries.    | ✅ PASS          |
