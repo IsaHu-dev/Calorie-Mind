@@ -37,9 +37,8 @@ class Food:
 class FoodTracker:
 
     def main_menu(self):
-         """
-        Displays the main menu and handles user interaction.
-        Users can log meals, set goals, review progress, and calculate weekly totals.
+        """
+        Display the main menu and handle user choices for meal logging, goal setting, and progress review.
         """
         done = False
         while not done:
@@ -51,7 +50,7 @@ class FoodTracker:
                 "(q) Quit\n"
             )
 
-            choice = input("Enter your choice: ") # Prompt user for choice
+            choice = input("Enter your choice: ") 
 
             if choice == "1":
                 food_name = input(
@@ -144,7 +143,7 @@ class FoodTracker:
         print("\nDaily consumed data and goals added to the goals worksheet.")
 
     def record_new_goals(self):
-        """Prompts the user for new daily goals and updates them in Google Sheets."""
+        """Prompts the user to set new goals."""
         while True:
             try:
                 self.protein_goal = int(input("Enter your new protein goal: "))
@@ -188,7 +187,7 @@ class FoodTracker:
         self.update_goals_sheet()
 
     def calculate_weekly_totals(self):
-        """Calculate weekly totals for calories and macronutrients."""
+        """Calculate and log weekly totals for calories and macronutrients."""
         entries = WORKSHEET.get_all_values()
         last_7_entries = entries[-7:] if len(entries) >= 7 else entries # Use up to the last 7 entries if available
 
@@ -209,7 +208,7 @@ class FoodTracker:
         print("\nWeekly totals added to Google Sheets successfully.")
 
     def fetch_nutrition(self, food_name): 
-        """Fetch nutritional data for a food item using an API."""
+        """Make a GET request to the API with the specified URL, headers, and query parameters. Check if the API returned any data for the food item """
         headers = {"X-Api-Key": API_KEY}
         params = {"query": food_name}
 
