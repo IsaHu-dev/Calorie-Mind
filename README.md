@@ -35,23 +35,17 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
 - Calorie Mind provides a straightforward, command-driven interface, facilitating efficient navigation and nutrition tracking via a number selection. Each feature supports mindful eating practices, enabling dietary adjustments aligned with health and fitness objectives.
 
-    1. Add your Dinner - Input dinner entries.
-    
+- Add your Dinner - Input dinner entries.
+
     - Select 1 to add a dinner entry. If nutritional information is unknown, the application initiates an API request to retrieve accurate values (calories, protein, fat, and carbs). 
-    
+
     - You can log more than one meal per day
 
     - Ensures the food intake logs for daily tracking.    
 
-
-     2. Record New Daily Goals
-    
-    - Set daily macronutrient targets for protein, fat, and carbs.  
-    
     - This feature helps you stay aligned with your nutrition goals and maintain a balanced diet.
 
     - This function allows users to input new daily goals and replace them with new custom values.
-    
 
       Default macronutrient daily data:     
          
@@ -69,26 +63,25 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
     - These calculations help create a logical nutrition plan, whether it’s for weight loss, muscle gain, or maintaining a healthy diet. Calorie Mind is not merely about weight loss.
 
-    
-     3. Review Your Daily Goal's Analysis
+- Review Your Daily Goal's Analysis
 
-    - The daily macronutrient entries are totalled, and a percentage is calculated for each macronutrient (protein, fat, and carbohydrates) relative to the daily set goals.
+     - The daily macronutrient entries are totalled, and a percentage is calculated for each macronutrient (protein, fat, and carbohydrates) relative to the daily set goals.
    
-    - Your daily goals are calculated as a percentage, showing your progress toward your targets. It compares the consumed data and goal data, then outputs it as a percentage.
+     - Your daily goals are calculated as a percentage, showing your progress toward your targets. It compares the consumed data and goal data, then outputs it as a percentage.
 
-
-     4. Calculate Weekly Totals
+- Calculate Weekly Totals
 
      - Track your weekly progress by calculating the total calories, protein, and fat consumed over the last seven days - to help assess and adjust your diet over time.
 
      - The app utilizes the gspread and google-auth libraries to interact with Google Sheets, using them as a cloud-based database for data storage and retrieval. Therefore, Google Worksheets serves as a lightweight database, enabling seamless data updates and retrievals from designated worksheets.
      
 
-     5. q for Quit
+- q for Quit
 
      - Quit the program at any time by selecting' q'. The program exits.
        A message is printed to the console: "Great job! You've successfully logged all your calories for the day!"    
 
+ 
  ### Additional notes: 
 
   Use of Libraries
