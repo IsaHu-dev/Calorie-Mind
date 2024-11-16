@@ -85,9 +85,9 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
    ![Weekly Totals worksheet](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/weeklytotals.png)    
 
 
- ### UX Design (Basic): 
+ ### Basic UX Design: 
 
-  - Improved console output readability by adding line spacing for clearer print results.(\n)
+  - Improved console output readability by adding line spacing for clearer print results.
 
 ## Future Features
 
