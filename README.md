@@ -113,9 +113,9 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 | Select option 1                   | Prompt user to enter their protein, fat and carbs.                                  | ✅ PASS          |
 | Select option 1                   | Prompt user to select if they know the macronutrient values. Select n (no) or y (yes).                                                                                                                    | ✅ PASS          |
 | Select 'n' (no)                   | Retrieve API from Calorie Ninjas                                                    | ✅ PASS          |
-| Handles invalid input data        | The app recognises an unrecognised item, the console will display a message "Food item not recognized"                                                      | ✅ PASS          |
+| Handles invalid input data        | If the API does not recognize a food item, the app displays the message: 'Food item not recognized'                                                | ✅ PASS          |
 | Select option 2                   | Prompt to input your daily target goals for Protein, Fat, and Carbs.                | ✅ PASS          |
-| Detects no user input             | The console will display a message "No entry has been made yet" (when it detects self.today list is empty)                | ✅ PASS          |
+| No user input detected            | The console will display a message "No entry has been made yet"                     | ✅ PASS          |
 | Handles invalid input data        | Prompt the user to input a nutrient value, validate it as a non-negative integer (round number)                          | ✅ PASS  
 | Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries                                                                                                                  | ✅ PASS          |
 | Selection option 4.               | Calculates weekly totals of calories and macronutrients. Retrieves from Google worksheet and sums up the last 7 entries.    | ✅ PASS          |
