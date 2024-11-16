@@ -72,23 +72,23 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
   - The gspread library manages API communication with Google Sheets, while google-auth handles authentication to ensure secure access to the spreadsheet data.
 
-  - For example, the gspread library plays a significant role in collecting data for weekly totals by retrieving the last 7 entries from the Google Sheet. Based on a date timestamp recorded with each entry, these entries are accessed from the "Week Total" sheet, allowing for calculation and display of weekly data collection.  
+  - The gspread library is utilized to retrieve the most recent 7 entries from the Google Sheet for weekly data analysis. Each entry is recorded with a timestamp, which is used to identify and access the relevant data from the "Week Total" sheet. This functionality enables the accurate calculation and display of weekly totals, ensuring comprehensive tracking and reporting. 
 
-   Entries Worksheet
-
+   
    ![Daily Entries worksheet](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/entries.png)
-   Goals Worksheet
+    Entries Worksheet
 
    ![Daily Goals worksheet](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/goals.png)
-   Weekly Totals Worksheet
+    Goals Worksheet
 
    ![Weekly Totals worksheet](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/weeklytotals.png)    
+    Weekly Totals Worksheet
 
 ### Google Sheets Link
 
 - Please click on this link to view the Google worksheets and Entries, Goal and Worktotal sheets:
   https://docs.google.com/spreadsheets/d/1AolucGwHaHIfdgWZprr5FXCtpJqEvPUGCzdBgGhvJrc/edit?usp=sharing. Access is granted with this link.
-  
+
  ### Basic UX Design: 
 
   - Improved console output readability by adding line spacing for clearer print results.
@@ -112,12 +112,12 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 | Run program                       | Click run program.  The app will appear with a multiple choice selection.           | ✅ PASS          |
 | Select option 1                   | Prompt user to enter their protein, fat and carbs.                                  | ✅ PASS          |
 | Select option 1                   | Prompt user to select if they know the macronutrient values. Select n (no) or y (yes).                                                                                                                    | ✅ PASS          |
-| Select n (no).                    | Retrieve API from Calorie Ninjas                                                    | ✅ PASS          |
+| Select 'n' (no)                   | Retrieve API from Calorie Ninjas                                                    | ✅ PASS          |
 | Handles invalid input data        | The app recognises an unrecognised item, the console will display a message "Food item not recognized"                                                      | ✅ PASS          |
 | Select option 2                   | Prompt to input your daily target goals for Protein, Fat, and Carbs.                | ✅ PASS          |
 | Detects no user input             | The console will display a message "No entry has been made yet" (when it detects self.today list is empty)                | ✅ PASS          |
-| Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries.                                                                                                                  | ✅ PASS          |
-| Handles invalid input data        | The console will display a messsage "Please enter valid round numbers for each goal."| ✅ PASS          |
+| Handles invalid input data        | Prompt the user to input a nutrient value, validate it as a non-negative integer (round number)                          | ✅ PASS  
+| Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries                                                                                                                  | ✅ PASS          |
 | Selection option 4.               | Calculates weekly totals of calories and macronutrients. Retrieves from Google worksheet and sums up the last 7 entries.    | ✅ PASS          |
 | Select q                          | Select q for quit. Exits mock terminal program.                                     | ✅ PASS          |
 

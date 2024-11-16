@@ -244,7 +244,7 @@ class FoodTracker:
             return None
 
     def get_nutrient_input(self, nutrient_name):
-        """Prompt the user to input a nutrient value, validate it as a non-negative integer, and handle errors."""
+        """Prompt the user to input a nutrient value, validate it as a non-negative integer (round number), and handle errors."""
         while True:
             try:
                 value = int(input(f"{nutrient_name}:")) #Prompt the user for input and parse as an integer
