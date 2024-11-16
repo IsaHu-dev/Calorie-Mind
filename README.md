@@ -76,8 +76,8 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 
   - Track your weekly progress by calculating the total calories, protein, and fat consumed over the last seven days - to help assess and adjust your diet over time.
 
-  - The app utilizes the gspread and google-auth libraries to interact with Google Sheets, using them as a cloud-based database for data storage and retrieval. Therefore, Google Worksheets serves as a lightweight database, enabling seamless data updates and retrievals from designated worksheets.
-     
+  - The gspread library is utilized to retrieve the most recent 7 entries from the Google Sheet for weekly data analysis. Each entry is recorded with a timestamp, which is used to identify and access the relevant data from the "Week Total" sheet. This functionality enables the accurate calculation and display of weekly totals, ensuring comprehensive tracking and reporting. 
+
 
 5 - q for Quit
 
@@ -91,8 +91,8 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 
   - The gspread library manages API communication with Google Sheets, while google-auth handles authentication to ensure secure access to the spreadsheet data.
 
-  - The gspread library is utilized to retrieve the most recent 7 entries from the Google Sheet for weekly data analysis. Each entry is recorded with a timestamp, which is used to identify and access the relevant data from the "Week Total" sheet. This functionality enables the accurate calculation and display of weekly totals, ensuring comprehensive tracking and reporting. 
-
+  - Google Sheets acts as a lightweight cloud-based database, allowing seamless data storage, updates, and retrieval from designated worksheets.
+ 
    
    ![Daily Entries worksheet](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/entries.png)
     Entries Worksheet
