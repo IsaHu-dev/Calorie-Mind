@@ -105,7 +105,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 - Please click on this link to view the Google worksheets and Entries, Goal and Worktotal sheets:
   https://docs.google.com/spreadsheets/d/1AolucGwHaHIfdgWZprr5FXCtpJqEvPUGCzdBgGhvJrc/edit?usp=sharing. Access is granted with this link.
 
- ### Basic UX Design: 
+### Basic UX Design: 
 
   - Improved console output readability by adding line spacing for clearer print results.
 
