@@ -84,7 +84,11 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
    ![Weekly Totals worksheet](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/weeklytotals.png)    
 
+### Google Sheets Link
 
+- Please click on this link to view the Google worksheets and Entries, Goal and Worktotal sheets:
+  https://docs.google.com/spreadsheets/d/1AolucGwHaHIfdgWZprr5FXCtpJqEvPUGCzdBgGhvJrc/edit?usp=sharing. Access is granted with this link.
+  
  ### Basic UX Design: 
 
   - Improved console output readability by adding line spacing for clearer print results.
@@ -108,7 +112,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 | Run program                       | Click run program.  The app will appear with a multiple choice selection.           | ✅ PASS          |
 | Select option 1                   | Prompt user to enter their protein, fat and carbs.                                  | ✅ PASS          |
 | Select option 1                   | Prompt user to select if they know the macronutrient values. Select n (no) or y (yes).                                                                                                                    | ✅ PASS          |
-| Select option 1                   | Retrieve API from Calorie Ninjas                                                    | ✅ PASS          |
+| Select n (no).                    | Retrieve API from Calorie Ninjas                                                    | ✅ PASS          |
 | Handles invalid input data        | The app recognises an unrecognised item, the console will display a message "Food item not recognized"                                                      | ✅ PASS          |
 | Select option 2                   | Prompt to input your daily target goals for Protein, Fat, and Carbs.                | ✅ PASS          |
 | Detects no user input             | The console will display a message "No entry has been made yet" (when it detects self.today list is empty)                | ✅ PASS          |
