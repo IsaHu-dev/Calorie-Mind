@@ -99,9 +99,9 @@ class FoodTracker:
 
     def __init__(self):
         self.today = []  # Stores daily food entries
-        self.protein_goal = 100
-        self.fat_goal = 70
-        self.carbs_goal = 300
+        self.protein_goal = 100 # Daily protein goal, based on statistical recommendations
+        self.fat_goal = 70 # Daily fat goal, based on statistical recommendations
+        self.carbs_goal = 200 # Daily carbs goal, based on statistical recommendations
 
     def add_food(self, food: Food):
         """Add a food entry to the daily log and record it in the Google Sheets 'Entries' worksheet."""

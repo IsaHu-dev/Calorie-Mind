@@ -16,7 +16,8 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
 - Record New Daily Goals
     - Select option 2 to set your daily goals for macronutrients.
-      You will be prompted to input your target goals for Protein, Fat, and Carbs. This allows you to tailor your intake to your personal nutrition needs. 
+    - You will be prompted to input your target goals for Protein, Fat, and Carbs. This allows you to tailor your intake to your personal nutrition needs. 
+    - This option allows you to override the default macronutrient goals (default settings) with custom values.
 
 - View Daily Goal Analysis:
     - Select option 3 to review your daily goal analysis.
@@ -42,18 +43,34 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
     - Ensures the food intake logs for daily tracking.    
 
+
      2. Record New Daily Goals
     
-    - Set daily macronutrient targets for protein, fat, and carbs. This feature helps you stay aligned 
-      with your nutrition goals and maintain a balanced diet.
+    - Set daily macronutrient targets for protein, fat, and carbs.  
+    
+    - This feature helps you stay aligned with your nutrition goals and maintain a balanced diet.
 
-    - This function sums up your new daily goals.
+    - This function allows users to input new daily goals and replace them with new custom values.
 
+      Default macronutrient daily data:     
+         
+     -   protein_goal = 100
+         fat_goal = 70
+         carbs_goal = 200
+
+- Percentage calculation: 
+
+      Protein: (34 / 100) * 100 = 34%
+      Fat: (4 / 70) * 100 ≈ 5.71%
+      Carbs: (45 / 200) * 100 = 22.5%
+
+    - These calculations help create a logical nutrition plan, whether it’s for weight loss, muscle gain, or maintaining a healthy diet. Calorie Mind is not merely about weight loss.
+    
      3. Review Your Daily Goal's Analysis
 
-    - Your daily goals are calculated as a percentage printed to the console, showing your progress toward your targets. It compares the consumed data and goal data, then outputs it as a percentage.
-
-    - It calculates the sum of your daily protein, fats and carbs entries and outputs a percentage of your daily goal.     
+    - The daily macronutrient entries are totalled, and a percentage is calculated for each macronutrient (protein, fat, and carbohydrates) relative to the daily set goals.
+   
+    - Your daily goals are calculated as a percentage, showing your progress toward your targets. It compares the consumed data and goal data, then outputs it as a percentage.
 
      4. Calculate Weekly Totals
 
