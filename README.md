@@ -33,7 +33,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
 ## Existing Features
 
-- Calorie Mind provides a straightforward, command-driven interface, facilitating efficient navigation and nutrition tracking via a number selection. Each feature supports mindful eating practices, enabling dietary adjustments aligned with health and fitness objectives.
+- Calorie Mind provides a straightforward, command-driven interface that is user-friendly and allows you to track your daily calories via a number selection. 
 
 - Add your Dinner - Input dinner entries.
 
