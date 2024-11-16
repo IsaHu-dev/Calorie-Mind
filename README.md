@@ -6,7 +6,7 @@ Calorie Mind is user-friendly app designed to help you take control of your dail
 
 ### Target Users
 
-Calorie Mind is designed for individuals aiming to promote healthier lifestyles through mindful calorie management and tracking. Target users include fitness-conscious individuals looking to optimize their nutrition, heart disease charities, and well-being clinics that aim to support clients in achieving balanced dietary habits. Calorie Mind is ideal for all ages who wish to be informed of their calorie intake for better health and a good lifestyle.
+Calorie Mind is designed for individuals aiming to promote healthier lifestyles through mindful calorie management and tracking. Target users include fitness-conscious individuals looking to optimize their nutrition, heart disease centres, and well-being clinics that aim to support clients in achieving balanced dietary habits. Calorie Mind is ideal for all ages who wish to be informed of their calorie intake for better health and a good lifestyle.
 
  # How to Use Calorie Mind
 
@@ -20,8 +20,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
 - View Daily Goal Analysis:
     - Select option 3 to review your daily goal analysis.
-    - A percentage calculation will be displayed in the console, showing how much of your daily goals   
-      have been met based on your food entries.
+    - The console will display a percentage calculation showing how much of your daily goals have been met based on your food entries.
 
 - Calculate Weekly Totals:
     - Calorie Mind will calculate and display the total values for Calories, Protein, and Fat over the last seven days, helping you track your progress and adjust your diet if needed.
@@ -60,7 +59,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
      - Track your weekly progress by calculating the total calories, protein, and fat consumed over the last seven days - to help assess and adjust your diet over time.
 
-     - The app utilizes the gspread and google-auth libraries to interact with Google Sheets, using them as a cloud-based database for data storage and retrieval. Therefore, Google Worksheets serve as a lightweight database, enabling seamless data updates and retrievals from designated worksheets.
+     - The app utilizes the gspread and google-auth libraries to interact with Google Sheets, using them as a cloud-based database for data storage and retrieval. Therefore, Google Worksheets serves as a lightweight database, enabling seamless data updates and retrievals from designated worksheets.
      
      5. q for Quit
 
@@ -127,17 +126,19 @@ At the start of coding the app, I ran into some bugs. The following bugs I encou
 
 - Indentation Fixes: Corrected indentation issues, especially in the calculate_goal_percentage method.
 
-- Issue: Previously, the application would error when the API could not find a specified food item or when the user entered invalid input. 
-  Solution: Added exception handling to manage cases where the food item is not recognized by the API or if there’s invalid input. Now, when this occurs, the application catches the error and prints a helpful message—“Food item not recognised”—to the console. 
+- Issue: Previously, the application would throw an error when the API could not find a specified food item. 
+  Solution: Added exception handling to manage cases where the API does not recognize the food item or if there’s invalid input. Now, when this occurs, the application catches the error and prints a helpful message— “Food item not recognised”— to the console. 
 
-- Add conditional check for invalid user input, or when user inputs a decimal point or letters for entering Calories and macronutrients.
-  Previously, the application did not handle invalid inputs correctly when users entered calorie and macronutrient values. The application would reset 
-  to the main menu silently if users entered non-integer values, such as decimals, letters, or special characters.
+- Add a conditional check for invalid user input or when the user inputs a decimal point or letters to enter calories and macronutrients. 
+  The application would reset to the main menu if users entered non-integer values, such as decimals, letters, or special characters.
 
-- Fixed bug to ensure that 0 is accepted as valid input from the user. In the get_nutrient_input function, it checks that the input is greater 
-  than or equal to 0. Accepts 0 and positive integers as valid input.
+-  A bug was identified where the value 0 was incorrectly rejected as valid input for nutrient values. To resolve this, a new function,         get_nutrient_input, has been implemented. This function enforces input validation by ensuring the provided value is a non-negative integer, 
+  specifically allowing both 0 and positive integers as valid inputs.
 
-  ![Positive integers and zeros](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/roundnumber.png)
+   The screenshot below (Figure 1.0) demonstrates the issue where the value 0 was not accepted. This bug has been resolved in the current implementation.
+
+Figure 1.0 
+  ![Bug fix](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/roundnumber.png)
 
 All bugs are presently fixed.
 
