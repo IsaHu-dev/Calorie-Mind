@@ -51,11 +51,14 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
     - This feature helps you stay aligned with your nutrition goals and maintain a balanced diet.
 
     - This function allows users to input new daily goals and replace them with new custom values.
+    
 
       Default macronutrient daily data:     
          
      -   protein_goal = 100
+
          fat_goal = 70
+         
          carbs_goal = 200
 
 - Percentage calculation: 
@@ -80,7 +83,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
      - The app utilizes the gspread and google-auth libraries to interact with Google Sheets, using them as a cloud-based database for data storage and retrieval. Therefore, Google Worksheets serves as a lightweight database, enabling seamless data updates and retrievals from designated worksheets.
      
-     
+
      5. q for Quit
 
      - Quit the program at any time by selecting' q'. The program exits.
