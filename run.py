@@ -104,7 +104,7 @@ class FoodTracker:
         self.carbs_goal = 300
 
     def add_food(self, food: Food):
-        """Log a food entry in the daily log and Google Sheets."""
+        """Add a food entry to the daily log and record it in the Google Sheets 'Entries' worksheet."""
         self.today.append(food) # Add the food item to the daily log
         self.add_to_google_sheets(food)  # Log entry in the "Entries" worksheet
 
@@ -143,7 +143,7 @@ class FoodTracker:
         print("\nDaily consumed data and goals added to the goals worksheet.")
 
     def record_new_goals(self):
-        """Prompts the user to set new goals."""
+        """Prompt the user to input new daily nutritional goals and update them in Google Sheets."""
         while True:
             try:
                 self.protein_goal = int(input("Enter your new protein goal: "))
@@ -169,7 +169,7 @@ class FoodTracker:
             print("No entry has been made yet.")
             return
 
-        protein_sum = sum(food.protein for food in self.today) # Summing up protein values from all food items logged today
+        protein_sum = sum(food.protein for food in self.today) # Sum protein values from today's entries
         fats_sum = sum(food.fat for food in self.today)
         carbs_sum = sum(food.carbs for food in self.today)
 
