@@ -65,6 +65,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
       Carbs: (45 / 200) * 100 = 22.5%
 
     - These calculations help create a logical nutrition plan, whether it’s for weight loss, muscle gain, or maintaining a healthy diet. Calorie Mind is not merely about weight loss.
+
     
      3. Review Your Daily Goal's Analysis
 
@@ -72,11 +73,13 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
    
     - Your daily goals are calculated as a percentage, showing your progress toward your targets. It compares the consumed data and goal data, then outputs it as a percentage.
 
+
      4. Calculate Weekly Totals
 
      - Track your weekly progress by calculating the total calories, protein, and fat consumed over the last seven days - to help assess and adjust your diet over time.
 
      - The app utilizes the gspread and google-auth libraries to interact with Google Sheets, using them as a cloud-based database for data storage and retrieval. Therefore, Google Worksheets serves as a lightweight database, enabling seamless data updates and retrievals from designated worksheets.
+     
      
      5. q for Quit
 
