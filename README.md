@@ -12,7 +12,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
 - Add Your meals
     - Select option 1 to add meals for the day.
-    - You will be prompted to input a food item. If you're unsure about the nutritional information, simply enter the food name. Calorie Mind will retrieve the data via an API, providing the correct details for calories, protein, fat, and carbohydrates.
+    - You will be prompted to input a food item. If you're unsure about the nutritional information, enter the food name and answer (n) to the question. Calorie Mind will retrieve the data matching the correct details to the food item for calories, protein, fat, and carbohydrates.
 
 - Record New Daily Goals
     - Select option 2 to set your daily goals for macronutrients.
@@ -33,53 +33,56 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 
 ## Existing Features
 
-- Calorie Mind provides a straightforward, command-driven interface that is user-friendly and allows you to track your daily calories via a number selection. 
+Calorie Mind provides a straightforward, command-driven interface that is user-friendly and allows you to track your daily calories via a number selection. 
 
-- Add your Dinner - Input dinner entries.
+1 - Add your daily meals, typically breakfast, lunch and dinner - Input food items of your choice.
 
-    - Select 1 to add a dinner entry. If nutritional information is unknown, the application initiates an API request to retrieve accurate values (calories, protein, fat, and carbs). 
+  - The app allows the user to select n (no) or y (yes) when the user is asked "Do you know the calorie and macronutrient values? If nutritional information is unknown, the application initiates an API request to retrieve accurate values (calories, protein, fat, and carbs). 
 
-    - You can log more than one meal per day
+  - You can log more than one meal per day
 
-    - Ensures the food intake logs for daily tracking.    
+  - Ensures the food intake logs for daily tracking.    
 
-    - This feature helps you stay aligned with your nutrition goals and maintain a balanced diet.
+2 - Record New Daily Goals  
 
-    - This function allows users to input new daily goals and replace them with new custom values.
+  - Set daily macronutrient targets for protein, fat, and carbs. This feature helps you stay aligned with your nutrition goals and maintain a balanced diet.
+
+  - This function allows users to input new daily goals and replace them with new custom values.
 
       Default macronutrient daily data:     
          
      -   protein_goal = 100
 
-         fat_goal = 70
+     -   fat_goal = 70
          
-         carbs_goal = 200
+     -   carbs_goal = 200
 
-- Percentage calculation: 
+3 - Review Your Daily Goal's Analysis  
 
-      Protein: (34 / 100) * 100 = 34%
-      Fat: (4 / 70) * 100 ≈ 5.71%
-      Carbs: (45 / 200) * 100 = 22.5%
-
-    - These calculations help create a logical nutrition plan, whether it’s for weight loss, muscle gain, or maintaining a healthy diet. Calorie Mind is not merely about weight loss.
-
-- Review Your Daily Goal's Analysis
-
-     - The daily macronutrient entries are totalled, and a percentage is calculated for each macronutrient (protein, fat, and carbohydrates) relative to the daily set goals.
+  - The daily macronutrient entries are totalled, and a percentage is calculated for each macronutrient (protein, fat, and carbohydrates) relative to the daily set goals.
    
-     - Your daily goals are calculated as a percentage, showing your progress toward your targets. It compares the consumed data and goal data, then outputs it as a percentage.
+  - Your daily goals are calculated as a percentage, showing your progress toward your targets. It compares the consumed data and goal data, then outputs it as a percentage.
 
-- Calculate Weekly Totals
+     i.e Here is the percentage calculation: 
 
-     - Track your weekly progress by calculating the total calories, protein, and fat consumed over the last seven days - to help assess and adjust your diet over time.
+      -   Protein: (34 / 100) * 100 = 34%
+      -   Fat: (4 / 70) * 100 = 5.71%                 
+      -   Carbs: (45 / 200) * 100 = 22.5%
 
-     - The app utilizes the gspread and google-auth libraries to interact with Google Sheets, using them as a cloud-based database for data storage and retrieval. Therefore, Google Worksheets serves as a lightweight database, enabling seamless data updates and retrievals from designated worksheets.
+  - These calculations help create a logical nutrition plan, whether it’s for weight loss, muscle gain, or maintaining a healthy diet. Calorie Mind is not merely about weight loss.
+
+
+4 - Calculate Weekly Totals
+
+  - Track your weekly progress by calculating the total calories, protein, and fat consumed over the last seven days - to help assess and adjust your diet over time.
+
+  - The app utilizes the gspread and google-auth libraries to interact with Google Sheets, using them as a cloud-based database for data storage and retrieval. Therefore, Google Worksheets serves as a lightweight database, enabling seamless data updates and retrievals from designated worksheets.
      
 
-- q for Quit
+5 - q for Quit
 
-     - Quit the program at any time by selecting' q'. The program exits.
-       A message is printed to the console: "Great job! You've successfully logged all your calories for the day!"    
+  - Quit the program at any time by selecting' q'. The program exits.
+    A message is printed to the console: "Great job! You've successfully logged all your calories for the day!"    
 
  
  ### Additional notes: 
