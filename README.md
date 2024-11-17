@@ -2,7 +2,7 @@
 
 ## About
 
-Calorie Mind is user-friendly app designed to help you take control of your daily nutrition and meet your fitness goals. Whether you're trying to manage your weight, fuel your workouts, or simply eat healthier, Calorie Mind provides all the tools you need to make mindful eating choices. With features like custom food entries, daily goal tracking, insightful progress analysis, and weekly summaries, Calorie Mind is your go-to guide for a balanced lifestyle. Think Calories with Calorie Mind.
+Calorie Mind is a user-friendly app designed to help you take control of your daily nutrition and meet your fitness goals. Whether you're trying to manage your weight, fuel your workouts, or simply eat healthier, Calorie Mind provides all the tools you need to make mindful eating choices. With features like custom food entries, daily goal tracking, insightful progress analysis, and weekly summaries, Calorie Mind is your go-to guide for a balanced lifestyle. Think Calories with Calorie Mind.
 
 ### Target Users
 
@@ -134,16 +134,23 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 | Test Case                         | Expected Result                                                                     | Test Result |
 |-----------------------------------|-----------------------------------------------------------------------              |-------------|
 | Run program                       | Click run program.  The app will appear with a multiple choice selection.           | ✅ PASS          |
-| Select option 1                   | Prompt user to enter their protein, fat and carbs.                                  | ✅ PASS          |
-| Select option 1                   | Prompt user to select if they know the macronutrient values. Select n (no) or y (yes).                                                                                                                    | ✅ PASS          |
-| Select 'n' (no)                   | Retrieve API from Calorie Ninjas                                                    | ✅ PASS          |
-| Handles invalid input data        | If the API does not recognize a food item, the app displays the message: 'Food item not recognized'                                                | ✅ PASS          |
-| Select option 2                   | Prompt to input your daily target goals for Protein, Fat, and Carbs.                | ✅ PASS          |
+| Prompt user input                 | Prompt user to enter a food item.                                                   | ✅ PASS          |
+| Prompt user input                 | Prompt user to select if they know the macronutrient values. Select n (no) or y (yes).    | ✅ PASS          |
+| User input 'y' (y)                | Prompt user to enter their protein, fat and carbs.                                  | ✅ PASS          |
+| User input 'n' (no)               | Retrieve API from Calorie Ninjas.                                                   | ✅ PASS          |
+| Outputs results to console        | Outputs daily nutrients result to console.                                          | ✅ PASS          |
+| Daily nutrients appends worksheet | User inputs daily nutrients, which are appended to the 'Entries' worksheet.         | ✅ PASS          |
+| Handles invalid input data        | If the API does not recognize a food item, the app displays the message: 'Food item not recognized'.                                                                                                                                       | ✅ PASS          |
+| Select option 2                   | Prompt user to input your daily target goals for Protein, Fat, and Carbs.                | ✅ PASS          |
 | No user input detected            | The console will display a message "No entry has been made yet"                     | ✅ PASS          |
-| Handles invalid input data        | Prompt the user to input a nutrient value, validate it as a non-negative integer (round number)                          | ✅ PASS  
-| Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries                                                                                                                   | ✅ PASS          |
+| Handles invalid input data        | Prompt the user to input a nutrient value, validate it as a non-negative integer (round number).                         | ✅ PASS  
+| Daily goals appends to worksheet  | Default goals added to worksheet if there are no new daily goal entries (option 2). | ✅ PASS          |
+| Daily goals appends to worksheet  | User inputs new goals, which are appended to the 'Goal' worksheet.                  | ✅ PASS          |
+| Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries.                                                                                                                  | ✅ PASS          |
 | Select option 4                   | Calculates weekly totals of calories and macronutrients. Retrieves from Google worksheet and sums up the last 7 entries.    | ✅ PASS          |
-| Handles invalid input data        | Identifies empty or invalid non-numeric entries in Google worksheet columns         | ✅ PASS          |
+| Outputs results to console        | Outputs weekly totals result to console.                                            | ✅ PASS          |
+| Weekly totals appends to worksheet| User inputs option 4. Weekly totals appends to worksheet 'Week Totals'              | ✅ PASS          |
+| Handles invalid input data        | Identifies empty or invalid non-numeric entries in Google worksheet columns.        | ✅ PASS          |
 | Select q                          | Select q for quit. Exits mock terminal program.                                     | ✅ PASS          |
 
 
