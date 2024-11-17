@@ -63,7 +63,7 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
    
   - Your daily goals are calculated as a percentage, showing your progress toward your targets. It compares the consumed data and goal data, then outputs it as a percentage.
 
-     i.e Here is the percentage calculation: 
+     i.e,. this is the percentage calculation: 
 
       -   Protein: (34 / 100) * 100 = 34%
       -   Fat: (4 / 70) * 100 = 5.71%                 
@@ -167,7 +167,7 @@ All bugs are presently fixed.
 
 ## Code Style and Readability
 
-- Format code with Black Python Formatter to maintain consistent code style and readability.
+- The code is formatted with the Black Python Formatter to maintain consistent code style and readability.
 
 ## Validator Testing
 
@@ -196,7 +196,7 @@ The steps for deployment are as follows:
   - The python code for the app Calorie Mind was refactored to adopt an object-oriented approach. I sourced this youtube tutorial and used it as a rough guide: https://www.youtube.com/watch?v=0-LDsQpKYFU
 
   - [Real Python](https://realpython.com/.com/)
-  - [Calorie Ninja API documentation](https://calorieninjas.com/api)
+  - [Calorie Ninja API documentation](https://calorieninjas.com/api) - The API is used only.
   - [Stack Overflow](https://stackoverflow.com/questions/10004850/python-classes-and-oop-basics)
 
  ## Code Attribution
