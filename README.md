@@ -177,7 +177,8 @@ At the beginning of coding the app, I ran into some bugs. The following bugs I e
 Figure 1.0 
   ![Bug fix](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/roundnumber.png)
 
-- Issue: At the end of the project, the application threw an error when there were empty columns in Google worksheets. 
+- Issue: At the end of the project, the application threw an error when there were empty columns in Google worksheets.
+ 
   Solution: In the calculate_weekly_totals function, a validation step is added to ensure only numeric values are summed.
 
 All bugs are presently fixed.
