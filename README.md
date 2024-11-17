@@ -74,10 +74,9 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 
 4 - Calculate Weekly Totals
 
-  - Track your weekly progress by calculating the total calories, protein, and fat consumed over the last seven days - to help assess and adjust your diet over time.
+  - Track your weekly progress by calculating the total calories, protein, and fat consumed over the last seven days.
 
-  - The gspread library is utilized to retrieve the most recent 7 entries from the Google Sheet for weekly data analysis. Each entry is recorded with a timestamp, which is used to identify and access the relevant data from the "Week Total" sheet. This functionality enables the accurate calculation and display of weekly totals, ensuring comprehensive tracking and reporting. 
-
+  - The gspread library retrieves the last 7 entries from Google Sheet for a weekly data analysis. Each entry is recorded with a timestamp, which is used to identify and access the relevant data from the "Week Total" sheet. This functionality enables the accurate calculation of the weekly totals, providing a clear overview of weekly progress. 
 
 5 - q for Quit
 
