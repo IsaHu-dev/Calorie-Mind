@@ -199,7 +199,7 @@ class FoodTracker:
         for entry in last_7_entries:
             try:
                 # Ensure each value is numeric and non-empty
-                calories = int(entry[2]) if entry[2].isdigit() else 0
+                calories = int(entry[2]) if entry[2].isdigit() else 0 # This method checks if all characters in a string are digits. 
                 protein = int(entry[3]) if entry[3].isdigit() else 0
                 fat = int(entry[4]) if entry[4].isdigit() else 0
                 carbs = int(entry[5]) if entry[5].isdigit() else 0

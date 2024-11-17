@@ -208,6 +208,7 @@ The steps for deployment are as follows:
   - [Real Python](https://realpython.com/.com/)
   - [Calorie Ninja API documentation](https://calorieninjas.com/api) - The API is used only.
   - [Stack Overflow](https://stackoverflow.com/questions/10004850/python-classes-and-oop-basics)
+  - [w3schools - Python](https://www.w3schools.com/python/ref_string_isdigit.asp)
 
  ## Code Attribution
 
