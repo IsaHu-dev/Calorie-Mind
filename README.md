@@ -17,7 +17,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
 - Record New Daily Goals
     - Select option 2 to set your daily goals for macronutrients.
     - You will be prompted to input your target goals for Protein, Fat, and Carbs. This allows you to tailor your intake to your personal nutrition needs. 
-    - This option allows you to override the default macronutrient goals (default settings) with custom values.
+    - This option allows you to override the default macronutrient goals with custom values.
 
 - View Daily Goal Analysis:
     - Select option 3 to review your daily goal analysis.
