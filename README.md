@@ -24,7 +24,7 @@ Calorie Mind is designed for individuals aiming to promote healthier lifestyles 
     - The console will display a percentage calculation showing how much of your daily goals have been met based on your food entries.
 
 - Calculate Weekly Totals:
-    - Calorie Mind will calculate and display the total values for Calories, Protein, and Fat over the last seven days, helping you track your progress and adjust your diet if needed.
+    - Select option 4 - Calorie Mind will calculate and display the total values for Calories, Protein, and Fat over the last seven days, helping you track your progress and adjust your diet if needed.
 
 # Features
 
@@ -79,6 +79,8 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
   - Track your weekly progress by calculating the total calories, protein, and fat consumed over the last seven days.
 
   - The gspread library retrieves the last 7 entries from Google Sheet for a weekly data analysis. Each entry is recorded with a timestamp, which is used to identify and access the relevant data from the "Week Total" sheet. This functionality enables the accurate calculation of the weekly totals, providing a clear overview of weekly progress. 
+
+  -  Weekly totals are displayed on the console.
 
   -  Weekly totals are logged into the designated Google worksheet: Week Total.
 

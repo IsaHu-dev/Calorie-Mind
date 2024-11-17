@@ -206,6 +206,9 @@ class FoodTracker:
         ]
         WEEKTOTAL_WORKSHEET.append_row(row) # Log totals in Google Sheets
         print("\nWeekly totals added to Google Sheets successfully.")
+        print(
+            f"\nWeekly Totals:\nCalories: {total_calories}, Protein: {total_protein}, Fat: {total_fat}, Carbs: {total_carbs}"
+        )
 
     def fetch_nutrition(self, food_name): 
         """Make a GET request to the API with the specified URL, headers, and query parameters. Check if the API returned any data for the food item """
