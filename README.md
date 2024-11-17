@@ -143,6 +143,7 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 | Handles invalid input data        | Prompt the user to input a nutrient value, validate it as a non-negative integer (round number)                          | ✅ PASS  
 | Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries                                                                                                                  | ✅ PASS          |
 | Select option 4                   | Calculates weekly totals of calories and macronutrients. Retrieves from Google worksheet and sums up the last 7 entries.    | ✅ PASS          |
+| Handles invalid input data        | Detects empty or non-numeric values in columns in Google worksheets                 | ✅ PASS          |
 | Select q                          | Select q for quit. Exits mock terminal program.                                     | ✅ PASS          |
 
 
@@ -168,6 +169,9 @@ At the beginning of coding the app, I ran into some bugs. The following bugs I e
 
 Figure 1.0 
   ![Bug fix](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/roundnumber.png)
+
+- Issue: At the end of the project, the application threw an error when there were empty columns in Google worksheets. 
+  Solution: In the calculate_weekly_totals function, a validation step is added to ensure only numeric values are summed.
 
 All bugs are presently fixed.
 

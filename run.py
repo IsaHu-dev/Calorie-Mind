@@ -191,10 +191,27 @@ class FoodTracker:
         entries = WORKSHEET.get_all_values()
         last_7_entries = entries[-7:] if len(entries) >= 7 else entries # Use up to the last 7 entries if available
 
-        total_calories = sum(int(entry[2]) for entry in last_7_entries)
-        total_protein = sum(int(entry[3]) for entry in last_7_entries)
-        total_fat = sum(int(entry[4]) for entry in last_7_entries)
-        total_carbs = sum(int(entry[5]) for entry in last_7_entries)
+        total_calories = 0
+        total_protein = 0
+        total_fat = 0
+        total_carbs = 0
+
+        for entry in last_7_entries:
+            try:
+                # Ensure each value is numeric and non-empty
+                calories = int(entry[2]) if entry[2].isdigit() else 0
+                protein = int(entry[3]) if entry[3].isdigit() else 0
+                fat = int(entry[4]) if entry[4].isdigit() else 0
+                carbs = int(entry[5]) if entry[5].isdigit() else 0
+                
+                # Add to totals
+                total_calories += calories
+                total_protein += protein
+                total_fat += fat
+                total_carbs += carbs
+            except IndexError:
+                # Skip rows that don't have enough columns
+                continue
 
         timestamp = datetime.now().strftime("%Y-%m-%d")
         row = [
