@@ -49,13 +49,13 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 
   - This function allows users to input new daily goals and replace them with new custom values.
 
-      Default macronutrient daily data:     
+      The application is pre-configured with the following default daily macronutrient targets:   
          
-     -   protein_goal = 100
+     -   protein goal = 100
 
-     -   fat_goal = 70
+     -   fat goal = 70
          
-     -   carbs_goal = 200
+     -   carbs goal = 200
 
 3 - Review Your Daily Goal's Analysis  
 
@@ -201,8 +201,7 @@ The steps for deployment are as follows:
 
  ## Code Attribution
 
-  - This project uses modified code for the Google Sheets API and client setup, based on the "Love Sandwiches" walkthrough by Code Institute. The   
-    remaining code is original and was developed independently for this project.
+  - This project uses modified code for the Google Sheets API and client setup, based on the "Love Sandwiches" walkthrough by Code Institute. The remaining code is original and was developed independently for this project.
 
   ![Code Attribution](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/codeatt.png)
 
