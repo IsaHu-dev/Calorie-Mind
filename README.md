@@ -47,7 +47,7 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 
   - Set daily macronutrient targets for protein, fat, and carbs. This feature helps you stay aligned with your nutrition goals and maintain a balanced diet.
 
-  - This function allows users to input new daily goals and replace them with new custom values.
+  - This function allows users to input new daily goals and replace them with custom values.
 
       The application is pre-configured with the following default daily macronutrient targets:   
          
