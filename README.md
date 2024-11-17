@@ -155,11 +155,10 @@ At the start of coding the app, I ran into some bugs. The following bugs I encou
 - Issue: Previously, the application would throw an error when the API could not find a specified food item. 
   Solution: Added exception handling to manage cases where the API does not recognize the food item or if there’s invalid input. Now, when this occurs, the application catches the error and prints a helpful message— “Food item not recognised”— to the console. 
 
-- Add a conditional check for invalid user input or when the user inputs a decimal point or letters to enter calories and macronutrients. 
-  The application would reset to the main menu if users entered non-integer values, such as decimals, letters, or special characters.
+- Issue: The application would reset to the main menu if users entered non-integer values, such as decimals, letters, or special characters. 
+Solution: Add a conditional check to handle invalid user input. Prompt the user to enter a nutrient value, validate it as a non-negative integer, and skip returning to the main menu.
 
--  A bug was identified where the value 0 was incorrectly rejected as valid input for nutrient values. To resolve this, a new function,         get_nutrient_input, has been implemented. This function enforces input validation by ensuring the provided value is a non-negative integer, 
-  specifically allowing both 0 and positive integers as valid inputs.
+-  A bug was identified where the value 0 was incorrectly rejected as valid input for nutrient values. To resolve this, a new function, 'get_nutrient_input', has been implemented. This function enforces input validation by ensuring the provided value is a non-negative integer, specifically allowing both 0 and positive integers as valid inputs.
 
    The screenshot below (Figure 1.0) demonstrates the issue where the value 0 was not accepted. This bug has been resolved in the current implementation.
 
