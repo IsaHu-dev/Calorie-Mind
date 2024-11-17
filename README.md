@@ -41,7 +41,7 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 
   - You can log more than one meal per day
 
-  - Ensures the food intake logs for daily tracking.    
+  - Daily food calorie and macronutrient intakes are logged into the designated worksheet: Entries, Goal and Weektotal.
 
 2 - Record New Daily Goals  
 
