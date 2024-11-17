@@ -149,7 +149,7 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 | Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries.                                                                                                                  | ✅ PASS          |
 | Select option 4                   | Calculates weekly totals of calories and macronutrients. Retrieves from Google worksheet and sums up the last 7 entries.    | ✅ PASS          |
 | Outputs results to console        | Outputs weekly totals result to console.                                            | ✅ PASS          |
-| Weekly totals appends to worksheet| User inputs option 4. Weekly totals appends to worksheet 'Week Totals'              | ✅ PASS          |
+| Weekly totals appends to worksheet| User inputs option 4. Weekly totals appends to worksheet 'Week Totals'.             | ✅ PASS          |
 | Handles invalid input data        | Identifies empty or invalid non-numeric entries in Google worksheet columns.        | ✅ PASS          |
 | Select q                          | Select q for quit. Exits mock terminal program.                                     | ✅ PASS          |
 
@@ -176,7 +176,7 @@ At the beginning of coding the app, I ran into some bugs. The following bugs I e
 
 Figure 1.0 
   ![Bug fix](https://github.com/IsaHu-dev/Calorie-Mind/blob/main/media/roundnumber.png)
-  
+
 
 - Issue: At the end of the project, the application threw an error when there were empty columns in Google worksheets.
 
