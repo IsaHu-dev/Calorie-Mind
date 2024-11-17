@@ -118,7 +118,7 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 ## Future Features
 
   - Add a GUI interface and upgrade from a mock terminal.
-  - Expand Weekly Totals features to alert the user if they skipped a day. It currently calculates the last seven days.
+  - Expand Weekly Totals features to alert users if they skipped a day. It currently calculates the last seven days.
   - Add a leaderboard on scores once the GUI is designed and implemented.
 
 ## Flowchart
