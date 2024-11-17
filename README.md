@@ -142,7 +142,7 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 | No user input detected            | The console will display a message "No entry has been made yet"                     | ✅ PASS          |
 | Handles invalid input data        | Prompt the user to input a nutrient value, validate it as a non-negative integer (round number)                          | ✅ PASS  
 | Select option 3                   | The console will display a percentage calculation showing how much of your daily goals have been met based on food entries                                                                                                                  | ✅ PASS          |
-| Selection option 4.               | Calculates weekly totals of calories and macronutrients. Retrieves from Google worksheet and sums up the last 7 entries.    | ✅ PASS          |
+| Select option 4.                  | Calculates weekly totals of calories and macronutrients. Retrieves from Google worksheet and sums up the last 7 entries.    | ✅ PASS          |
 | Select q                          | Select q for quit. Exits mock terminal program.                                     | ✅ PASS          |
 
 
