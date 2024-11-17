@@ -41,7 +41,7 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
 
   - You can log more than one meal per day
 
-  - Daily food calorie and macronutrient intakes are logged into the designated worksheet: Entries, Goal and Weektotal.
+  - Daily food calorie and macronutrient intakes are logged into the designated worksheet: Entries.
 
 2 - Record New Daily Goals  
 
@@ -56,6 +56,8 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
      -   fat goal = 70
          
      -   carbs goal = 200
+
+     - New daily food calorie and macronutrient goals are logged into the designated Google worksheet: Goal.
 
 3 - Review Your Daily Goal's Analysis  
 
@@ -77,6 +79,8 @@ Calorie Mind provides a straightforward, command-driven interface that is user-f
   - Track your weekly progress by calculating the total calories, protein, and fat consumed over the last seven days.
 
   - The gspread library retrieves the last 7 entries from Google Sheet for a weekly data analysis. Each entry is recorded with a timestamp, which is used to identify and access the relevant data from the "Week Total" sheet. This functionality enables the accurate calculation of the weekly totals, providing a clear overview of weekly progress. 
+
+  -  Weekly totals are logged into the designated Google worksheet: Week Total.
 
 5 - q for Quit
 
